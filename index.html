@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afriandy | Crew, Official & Content Creator</title>
+
+<style>
+:root{
+  --bg:#020617;
+  --text:#e5e7eb;
+  --primary:#38bdf8;
+  --glass:rgba(255,255,255,0.08);
+}
+.light{
+  --bg:#f8fafc;
+  --text:#020617;
+  --glass:rgba(0,0,0,0.05);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:var(--bg);color:var(--text);transition:.4s}
+
+/* NAV */
+nav{
+  position:fixed;top:0;width:100%;
+  padding:18px 8%;
+  display:flex;justify-content:space-between;align-items:center;
+  backdrop-filter:blur(15px);
+  background:rgba(2,6,23,.65);
+  z-index:999;
+}
+nav h1{color:var(--primary)}
+nav ul{display:flex;gap:25px;list-style:none}
+nav a{color:var(--text);text-decoration:none}
+.toggle{cursor:pointer}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:120px 8% 0;
+}
+.hero-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.hero-photo img{
+  width:100%;
+  max-width:420px;
+  border-radius:36px;
+  box-shadow:0 40px 80px rgba(56,189,248,.25);
+  animation:float 6s ease-in-out infinite;
+}
+.hero h2{font-size:3rem}
+.hero span{color:var(--primary)}
+.hero p{margin-top:15px;max-width:520px;opacity:.9}
+
+/* BUSINESS LINKS */
+.business-links{
+  margin-top:26px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.biz-btn{
+  padding:12px 18px;
+  border-radius:12px;
+  text-decoration:none;
+  color:var(--text);
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.08);
+  min-width:210px;
+  transition:.35s;
+}
+.biz-btn strong{font-size:.9rem}
+.biz-btn span{font-size:.75rem;opacity:.65}
+.biz-btn:hover{
+  transform:translateY(-4px);
+  border-color:var(--primary);
+  box-shadow:0 12px 30px rgba(56,189,248,.25);
+}
+.cv-mini{
+  margin-top:18px;
+  max-width:200px;
+}
+
+.cv-mini a{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 16px;
+  background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(34,211,238,.08));
+  border-radius:14px;
+  text-decoration:none;
+  color:var(--text);
+  border:1px dashed rgba(56,189,248,.45);
+  transition:.35s;
+}
+
+.cv-mini a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(56,189,248,.25);
+}
+
+.cv-tag{
+  font-size:.75rem;
+  padding:6px 10px;
+  border-radius:10px;
+  background:var(--primary);
+  color:#020617;
+  font-weight:600;
+}
+
+.cv-mini strong{
+  font-size:.9rem;
+}
+
+.cv-mini p{
+  font-size:.7rem;
+  opacity:.7;
+  margin-top:2px;
+}
+
+
+/* FLOAT */
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-18px)}
+}
+
+/* SECTION */
+section{
+  padding:100px 8%;
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s;
+}
+section.active{opacity:1;transform:none}
+h3{font-size:2.3rem;color:var(--primary);margin-bottom:25px}
+
+/* ABOUT */
+.about-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.about-wrap img{
+  width:100%;
+  border-radius:28px;
+  transition:.5s;
+}
+.about-wrap img:hover{transform:scale(1.05)}
+
+/* SKILLS */
+.skills{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+.skill{
+  background:var(--glass);
+  padding:16px;
+  border-radius:16px;
+}
+.skill-title{margin-bottom:6px;font-size:.9rem;opacity:.85}
+.bar{
+  height:6px;
+  background:rgba(255,255,255,.15);
+  border-radius:20px;
+}
+.fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#38bdf8,#22d3ee);
+  border-radius:20px;
+  transition:1.6s ease;
+}
+
+/* CARD & STATS */
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(15px);
+  padding:40px;
+  border-radius:25px;
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:30px;
+  text-align:center;
+}
+.stat{font-size:2.4rem;color:var(--primary)}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+/* ACHIEVEMENTS (SMALL & CLEAN) */
+.achievements{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:18px;
+}
+.achievement{
+  background:var(--glass);
+  border-radius:16px;
+  overflow:hidden;
+}
+.achievement img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  object-position:center top;
+  transition:.4s;
+}
+.achievement:hover img{
+  transform:scale(1.08);
+}
+.achievement p{
+  text-align:center;
+  font-size:.8rem;
+  padding:10px;
+  opacity:.75;
+}
+
+/* WORK */
+.work{
+  background:var(--glass);
+  border-radius:20px;
+  overflow:hidden;
+}
+.work img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.work:hover img{transform:scale(1.12)}
+.work p{text-align:center;padding:15px}
+
+/* VIDEO */
+.video{
+  background:var(--glass);
+  padding:22px;
+  border-radius:18px;
+}
+.video a{color:var(--primary);text-decoration:none;font-size:.9rem}
+
+/* FOOTER */
+footer{text-align:center;padding:40px;opacity:.6}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav ul{display:none}
+  .hero-wrap,.about-wrap,.skills{grid-template-columns:1fr}
+  .hero h2{font-size:2.1rem}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>AFRIANDY AGUS LIHANDA</h1>
+  <ul>  
+
+  </ul>
+  <div class="toggle" onclick="toggleMode()">🌗</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-wrap">
+    <div>
+      <h2><span>ENTERPRENEUR</span><br>CONTENT CREATOR</h2>
+      <p>
+        Wirausahawan di bidang olahraga dan transportasi, konten kreator,
+        serta crew & volunteer di berbagai bidang.
+      </p>
+
+      <div class="business-links">
+        <a class="biz-btn" href="https://instagram.com/sewamobilpurworejo" target="_blank">
+          <strong>Sewa Mobil Purworejo</strong><br>
+          <span>@sewamobilpurworejo_</span>
+        </a>
+        <a class="biz-btn" href="https://instagram.com/rageshop.id" target="_blank">
+          <strong>Rageshop</strong><br>
+          <span>@rageshop.id</span>
+        </a>
+      </div>
+      <div class="cv-mini">
+  <a href="cv/CV-Afriandy-Agus-Lihanda.pdf" download>
+    <span class="cv-tag">CV</span>
+    <div>
+      <strong>Curriculum Vitae</strong>
+      <p>Download PDF</p>
+    </div>
+  </a>
+</div>
+
+    </div>
+    <div class="hero-photo">
+      <img src="img/foto-hero.jpg">
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <img src="img/IMG_1601 (1).JPEG">
+    <div>
+      <h3>Tentang Saya</h3>
+      <p>
+        Seorang pengusaha yang yang merintis dari nol, sering terlibat
+        sebagai crew/official di event lari atau volunteer di beberapa bidang,
+        serta aktif sebagai content creator di sosial media Tiktok daan Instagram.
+
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h3>Skill & Expertise</h3>
+  <div class="skills">
+    <div class="skill"><div class="skill-title">Team Management</div><div class="bar"><div class="fill" data-fill="100%"></div></div></div>
+    <div class="skill"><div class="skill-title">Social Media Management</div><div class="bar"><div class="fill" data-fill="100%"></div></div></div>
+    <div class="skill"><div class="skill-title">Content Creator</div><div class="bar"><div class="fill" data-fill="100%"></div></div></div>
+    <div class="skill"><div class="skill-title">Project Management</div><div class="bar"><div class="fill" data-fill="100%"></div></div></div>
+    <div class="skill"><div class="skill-title">Marketing Strategy</div><div class="bar"><div class="fill" data-fill="100%"></div></div></div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENT -->
+<section id="achievement">
+  <h3>Prestasi & Pencapaian</h3>
+  <div class="achievements">
+    <div class="achievement"><img src="img/prestasi-1.jpeg"><p>Juara 2 Lari Estafet 4x100M dan Juara 3 Lari 400M POR BAPOMI DIY</p></div>
+    <div class="achievement"><img src="img/prestasi-2.jpeg"><p>Juara Bertahan Amazing Race 2023-2025</p></div>
+    <div class="achievement"><img src="img/prestasi-3..jpeg"><p>2 Medali Emas dan 1 Perak PORSENIGAMA UGM 2022</p></div>
+    <div class="achievement"><img src="img/prestasi-4.jpeg"><p>Amazing Race 2024</p></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section>
+  <h3>Pengalaman</h3>
+  <div class="card stats">
+    <div><div class="stat" data-num="50" data-suffix="+">0</div>OFFICIAL/CREW EVENT</div>
+    <div><div class="stat" data-num="15" data-suffix="+">0</div>BRAND ENDORSE</div>
+    <div><div class="stat" data-num="100" data-suffix="+">0</div>VIDEO</div>
+  </div>
+</section>
+
+<!-- CREW -->
+<section id="portfolio">
+  <h3>Dokumentasi Crew Event</h3>
+  <div class="grid">
+    <div class="work"><img src="img/crew-1.jpg"><p>CAPTAIN MARSHAL</p></div>
+    <div class="work"><img src="img/crew-2.jpg"><p>START-FINSIH TEAM</p></div>
+    <div class="work"><img src="img/crew-3.jpg"><p>OFFICIAL TIMING MEDAN BLOT RUN</p></div>
+    <div class="work"><img src="img/crew-4.jpg"><p>TIMING SYSTEM DIENG CALDERA RUN</p></div>
+    <div class="work"><img src="img/crew-5.jpg"><p>CAPTAIN CCTV</p></div>
+    <div class="work"><img src="img/crew-6.jpg"><p>MARSHAL</p></div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <h3>Video Endorse Brand</h3>
+  <div class="grid">
+    <div class="video"><strong>Sport Station</strong><br><a href="https://www.instagram.com/reel/C6nrmZ6yPlP/?igsh=bWtpa3p2czYyYTQw">▶ Lihat Video</a></div>
+    <div class="video"><strong>PlanetSports.Asia</strong><br><a href="https://www.instagram.com/reel/C_b-s7ey3M2/?igsh=OXF2bDV4cGF5bTA=">▶ Lihat Video</a></div>
+    <div class="video"><strong>HOKA</strong><br><a href="https://www.instagram.com/reel/C5z2QVzyBS9/?igsh=MWU4bDdlaXJneWVv">▶ Lihat Video</a></div>
+    <div class="video"><strong>Reebok</strong><br><a href="https://www.instagram.com/reel/C8JIvB8y5Sc/?igsh=MXJ1ZWVtaW9raDd2MQ==">▶ Lihat Video</a></div>
+    <div class="video"><strong>New Balance</strong><br><a href="https://www.instagram.com/reel/DB8n644ABXf/?igsh=YXl2ejE0N3VyZWhr">▶ Lihat Video</a></div>
+    <div class="video"><strong>Tiento</strong><br><a href="https://www.instagram.com/reel/DDHgw-bTCTw/?igsh=Y3IzcTV0dHFjM3Nt">▶ Lihat Video</a></div>
+    <div class="video"><strong>Erafone</strong><br><a href="https://www.instagram.com/reel/DRZBB4pE-Zc/?igsh=MW44cjV6aXJ5Y242NA==">▶ Lihat Video</a></div>
+    <div class="video"><strong>MS Glow Men</strong><br><a href="https://www.instagram.com/reel/DPVeEomE6X8/?igsh=MThnaXRyMnJqMHdubQ==">▶ Lihat Video</a></div>
+    <div class="video"><strong>Fisik Sport</strong><br><a href="https://www.instagram.com/reel/DOgH9Nak8K2/?igsh=MTFnM3ZpMzA2M2Q5NQ==">▶ Lihat Video</a></div>
+    <div class="video"><strong>Napoleon</strong><br><a href="https://www.instagram.com/reel/C6YJAasS8Pn/?igsh=ZmFlMnl0YTJ1bjV0">▶ Lihat Video</a></div>
+    <div class="video"><strong>Huawei</strong><br><a href="https://www.instagram.com/reel/DLhT7wzzxSa/?igsh=MWwxajVxOTg1MnZyYQ==">▶ Lihat Video</a></div>
+    <div class="video"><strong>Coast To Coast</strong><br><a href="https://www.instagram.com/reel/DEb7W1UzOkK/?igsh=MWQxdjJicnpyMjhlZA==">▶ Lihat Video</a></div>
+    <div class="video"><strong>Nutriflakes</strong><br><a href="https://www.instagram.com/reel/DECA0M3Tm4g/?igsh=dGQ1MzZmcmpyMjNh">▶ Lihat Video</a></div>
+    <div class="video"><strong>On Point</strong><br><a href="https://www.instagram.com/reel/DDekngGSqOv/?igsh=MWJxejRzYm1tMXp6aw==">▶ Lihat Video</a></div>
+    <div class="video"><strong>NVL</strong><br><a href="https://www.instagram.com/reel/C3mnY9gyL-c/?igsh=ZTd3c2ZiMHNnNmNi">▶ Lihat Video</a></div>
+  </div>
+</section>
+
+<footer>
+© 2026 Afriandy Agus Lihanda — ENTERPRENEUR  • CONTENT CREATOR • OFFICIAL & CREW EVENT
+</footer>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle("light");
+}
+
+/* SECTION + SKILL ANIMATION */
+const sections=document.querySelectorAll("section");
+const fills=document.querySelectorAll(".fill");
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    if(scrollY+innerHeight>sec.offsetTop+100){
+      sec.classList.add("active");
+    }
+  });
+  fills.forEach(fill=>{
+    if(fill.getBoundingClientRect().top<innerHeight){
+      fill.style.width=fill.dataset.fill;
+    }
+  });
+});
+
+/* COUNTER */
+document.querySelectorAll(".stat").forEach(stat=>{
+  let done=false;
+  window.addEventListener("scroll",()=>{
+    if(!done && scrollY+innerHeight>stat.offsetTop){
+      done=true;
+      let i=0;
+      const target = +stat.dataset.num;
+      const suffix = stat.dataset.suffix || "";
+      const label = stat.dataset.label || "";
+
+      const int = setInterval(()=>{
+        i += Math.ceil(target / 80);
+        if(i >= target){
+          i = target;
+          clearInterval(int);
+          stat.textContent = i + suffix + label;
+        } else {
+          stat.textContent = i;
+        }
+      },30);
+    }
+  });
+});
+</script>
+
+</body>
+</html>
