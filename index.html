@@ -47,6 +47,36 @@ nav ul{display:flex;gap:25px;list-style:none}
 nav a{color:var(--text);text-decoration:none}
 .toggle{cursor:pointer}
 
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.mail-icon{
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:var(--glass);
+  color:var(--primary);
+  text-decoration:none;
+  font-size:1rem;
+  border:1px solid rgba(56,189,248,.4);
+  backdrop-filter:blur(10px);
+  transition:.3s;
+}
+
+.mail-icon:hover{
+  background:linear-gradient(135deg,#38bdf8,#22d3ee);
+  color:#020617;
+  transform:translateY(-2px) scale(1.08);
+  box-shadow:0 10px 25px rgba(56,189,248,.45);
+}
+
+
 /* HERO */
 .hero{
   min-height:100vh;
@@ -315,12 +345,20 @@ footer{text-align:center;padding:40px;opacity:.6}
 <body>
 
 <nav>
-  <h1>AFRIANDY AGUS LIHANDA</h1>
-  <ul>  
+  <div class="nav-left">
+    <a href="mailto:Afriandyaguslihanda@gmail.com?subject=Kerja%20Sama%20Afriandy"
+       class="mail-icon"
+       aria-label="Email for collaboration">
+      📩
+    </a>
+    <h1>AFRIANDY AGUS LIHANDA</h1>
+  </div>
 
-  </ul>
+  <ul></ul>
+
   <div class="toggle" onclick="toggleMode()">🌗</div>
 </nav>
+
 
 <!-- HERO -->
 <div class="hero">
