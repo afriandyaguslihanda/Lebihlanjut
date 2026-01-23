@@ -10,12 +10,6 @@ script-src 'self' 'unsafe-inline';
 ">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Afriandy Agus Lihanda – Entrepreneur, Content Creator, Crew & Official Event Olahraga">
-<meta property="og:title" content="Afriandy Agus Lihanda">
-<meta property="og:description" content="Entrepreneur • Content Creator • Official & Crew Event">
-<meta property="og:image" content="img/foto-hero.jpg">
-<meta property="og:type" content="website">
-
 <title>Afriandy | Crew, Official & Content Creator</title>
 
 <style>
@@ -276,6 +270,7 @@ footer{text-align:center;padding:40px;opacity:.6}
   .hero-wrap,.about-wrap,.skills{grid-template-columns:1fr}
   nav ul{display:none}
   .hero h2{font-size:2.1rem}
+@media(max-width:768px){
 
   .business-links{
     flex-direction:column;
@@ -308,49 +303,6 @@ footer{text-align:center;padding:40px;opacity:.6}
   .cv-mini p{
     font-size:.7rem;
   }
-  /* CONTACT TOGGLE */
-.contact-box{
-  margin-top:18px;
-  max-width:260px;
-}
-
-.contact-btn{
-  width:100%;
-  padding:14px;
-  border-radius:14px;
-  background:linear-gradient(135deg,#38bdf8,#22d3ee);
-  border:none;
-  color:#020617;
-  font-weight:600;
-  cursor:pointer;
-  transition:.35s;
-}
-
-.contact-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 14px 30px rgba(56,189,248,.35);
-}
-
-.contact-list{
-  margin-top:12px;
-  display:none;
-  flex-direction:column;
-  gap:10px;
-}
-
-.contact-list a{
-  padding:12px;
-  border-radius:12px;
-  background:var(--glass);
-  text-decoration:none;
-  color:var(--text);
-  font-size:.85rem;
-  transition:.3s;
-}
-
-.contact-list a:hover{
-  border:1px solid var(--primary);
-  transform:translateX(4px);
 }
 </style>
 </head>
@@ -396,21 +348,6 @@ footer{text-align:center;padding:40px;opacity:.6}
 </div>
 
     </div>
-    <div class="contact-box">
-  <button class="contact-btn" onclick="toggleContact()">
-    📞 Hubungi Saya
-  </button>
-
-  <div class="contact-list" id="contactList">
-    <a href="mailto:afriandy@email.com">
-      📧 afriandy@email.com
-    </a>
-    <a href="tel:+6281234567890">
-      📱 +62 812-3456-7890
-    </a>
-  </div>
-</div>
-
     <div class="hero-photo">
       <img src="img/foto-hero.jpg" alt="Afriandy Agus Lihanda">
     </div>
@@ -426,7 +363,7 @@ footer{text-align:center;padding:40px;opacity:.6}
       <p>
         Seorang pengusaha yang yang merintis dari nol, sering terlibat
         sebagai crew/official di event lari atau volunteer di beberapa bidang,
-        serta aktif sebagai content creator di sosial media Tiktok dan Instagram.
+        serta aktif sebagai content creator di sosial media Tiktok daan Instagram.
 
       </p>
     </div>
@@ -471,7 +408,7 @@ footer{text-align:center;padding:40px;opacity:.6}
   <h3>Dokumentasi Crew Event</h3>
   <div class="grid">
     <div class="work"><img src="img/crew-1.jpg"><p>CAPTAIN MARSHAL</p></div>
-    <div class="work"><img src="img/crew-2.jpg"><p>START-FINISH TEAM</p></div>
+    <div class="work"><img src="img/crew-2.jpg"><p>START-FINSIH TEAM</p></div>
     <div class="work"><img src="img/crew-3.jpg"><p>OFFICIAL TIMING MEDAN BLOT RUN</p></div>
     <div class="work"><img src="img/crew-4.jpg"><p>TIMING SYSTEM DIENG CALDERA RUN</p></div>
     <div class="work"><img src="img/crew-5.jpg"><p>CAPTAIN CCTV</p></div>
@@ -550,13 +487,6 @@ document.querySelectorAll(".stat").forEach(stat=>{
     }
   });
 });
-  <script>
-function toggleContact(){
-  const list = document.getElementById("contactList");
-  list.style.display = list.style.display === "flex" ? "none" : "flex";
-}
-</script>
-
 </script>
 
 </body>
