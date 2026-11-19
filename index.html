@@ -2,18 +2,14 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self';
-                 img-src 'self' https: data:;
-                 style-src 'self' 'unsafe-inline';
-                 script-src 'self' 'unsafe-inline';">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Afriandy Agus Lihanda — Entrepreneur, Content Creator, Official & Crew Event olahraga Indonesia">
+        content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
   <meta name="author" content="Afriandy Agus Lihanda">
+  <meta name="description" content="Afriandy Agus Lihanda — Entrepreneur, Content Creator, Official & Crew Event olahraga Indonesia">
   <meta property="og:title" content="Afriandy | Entrepreneur & Content Creator">
   <meta property="og:type" content="website">
   <meta property="og:image" content="img/foto-hero.jpg">
-
   <title>Afriandy | Crew, Official & Content Creator</title>
 
   <style>
@@ -43,41 +39,66 @@
       transition: .4s;
     }
 
-    /* Navigasi dan animasi nama */
+    /* Navigasi dan nama */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 18px 8%;
+      z-index: 999;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      backdrop-filter: blur(15px);
+      padding: 18px 8%;
       background: rgba(2, 6, 23, .65);
-      z-index: 999;
+      backdrop-filter: blur(15px);
     }
 
-    nav ul { display: flex; gap: 25px; list-style: none; }
-    nav a { color: var(--text); text-decoration: none; }
-    .toggle { cursor: pointer; }
     .nav-left { display: flex; align-items: center; gap: 12px; }
+    nav a { color: var(--text); text-decoration: none; }
 
-    nav .profile-name {
+    .toggle {
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+      font: inherit;
+    }
+
+    .mail-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(56, 189, 248, .4);
+      background: var(--glass);
+      color: var(--primary);
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    .mail-icon:hover {
+      background: linear-gradient(135deg, #38bdf8, #22d3ee);
+      color: #020617;
+      transform: translateY(-2px) scale(1.08);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, .45);
+    }
+
+    .profile-name {
       position: relative;
-      color: #38bdf8;
-      font-size: clamp(.9rem, 3.8vw, 1.5rem);
-      letter-spacing: .025em;
-      line-height: 1.2;
       padding: .25em .55em;
       border-radius: .55em;
       background: rgba(2, 14, 32, .85);
+      color: #38bdf8;
+      font-size: clamp(.9rem, 3.8vw, 1.5rem);
+      line-height: 1.2;
+      letter-spacing: .025em;
       box-shadow: 0 0 16px rgba(56, 189, 248, .24),
                   inset 0 0 10px rgba(34, 211, 238, .1);
     }
 
     .profile-name span {
       display: inline-block;
-      background-image: linear-gradient(
+      background: linear-gradient(
         105deg, #38bdf8 36%, #cffafe 48%, #fff 50%, #67e8f9 54%, #38bdf8 65%
       );
       background-size: 300% 100%;
@@ -102,34 +123,7 @@
       35%, 100% { background-position: 0% 50%; }
     }
 
-    @media (prefers-reduced-motion: reduce), (forced-colors: active) {
-      .profile-name span { animation: none; background: none; color: inherit; }
-    }
-
-    .mail-icon {
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--glass);
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 1rem;
-      border: 1px solid rgba(56, 189, 248, .4);
-      backdrop-filter: blur(10px);
-      transition: .3s;
-    }
-
-    .mail-icon:hover {
-      background: linear-gradient(135deg, #38bdf8, #22d3ee);
-      color: #020617;
-      transform: translateY(-2px) scale(1.08);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, .45);
-    }
-
-    /* Halaman utama */
+    /* Perkenalan dan foto */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -164,12 +158,12 @@
 
     /* Let’s Connect — bingkai lintasan atletik */
     .connect-link {
+      position: relative;
+      isolation: isolate;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: clamp(.6rem, 2vw, 1rem);
-      position: relative;
-      isolation: isolate;
       max-width: 100%;
       margin-top: 22px;
       padding: 20px clamp(1.45rem, 4vw, 2rem);
@@ -185,9 +179,9 @@
     .connect-link::after {
       content: "";
       position: absolute;
+      z-index: -1;
       border-radius: inherit;
       pointer-events: none;
-      z-index: -1;
     }
 
     .connect-link::before {
@@ -230,11 +224,7 @@
     }
 
     .hero .connect-caption { margin-top: 9px; font-size: .85rem; }
-
-    .connect-link:focus-visible {
-      outline: 3px solid var(--text);
-      outline-offset: 4px;
-    }
+    .connect-link:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; }
 
     @media (prefers-reduced-motion: no-preference) {
       .connect-arrow { transition: transform .22s ease-out; }
@@ -243,7 +233,7 @@
         transform: translate(2px, -2px);
       }
 
-      .connect-link::before { animation: track-start 1.2s ease-out 1; }
+      .connect-link::before { animation: track-start 1.2s ease-out; }
 
       @keyframes track-start {
         0% { opacity: .25; transform: scale(.97); }
@@ -252,29 +242,29 @@
       }
     }
 
-    /* Kartu bisnis */
+    /* Tiga kartu bisnis */
     .business-links {
-      margin-top: 26px;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
+      margin-top: 26px;
     }
 
     .biz-btn {
       position: relative;
-      padding: 14px;
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text);
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, .08);
       min-width: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 6px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 12px;
+      background: var(--glass);
+      color: var(--text);
+      text-decoration: none;
       overflow-wrap: anywhere;
+      backdrop-filter: blur(10px);
       transition: .35s;
     }
 
@@ -287,7 +277,7 @@
       box-shadow: 0 12px 30px rgba(56, 189, 248, .25);
     }
 
-    /* Bingkai cahaya pada nama dan kartu bisnis */
+    /* Bingkai cahaya nama dan kartu bisnis */
     @property --halo-angle {
       syntax: "<angle>";
       inherits: false;
@@ -299,9 +289,9 @@
       content: "";
       position: absolute;
       inset: 0;
+      border: 1px solid rgba(56, 189, 248, .65);
       border-radius: inherit;
       pointer-events: none;
-      border: 1px solid rgba(56, 189, 248, .65);
     }
 
     @supports (mask-composite: exclude) {
@@ -330,6 +320,10 @@
       to { --halo-angle: 360deg; }
     }
 
+    @media (prefers-reduced-motion: reduce), (forced-colors: active) {
+      .profile-name span { animation: none; background: none; color: inherit; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .profile-name::before,
       .biz-btn:is(:hover, :focus-visible, :active)::before { animation: none; }
@@ -337,7 +331,7 @@
       .biz-btn:hover { transform: none; }
     }
 
-    /* Unduh CV */
+    /* CV */
     .cv-mini { margin-top: 18px; max-width: 200px; }
 
     .cv-mini a {
@@ -345,11 +339,11 @@
       align-items: center;
       gap: 14px;
       padding: 14px 16px;
-      background: linear-gradient(135deg, rgba(56, 189, 248, .15), rgba(34, 211, 238, .08));
-      border-radius: 14px;
-      text-decoration: none;
-      color: var(--text);
       border: 1px dashed rgba(56, 189, 248, .45);
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, .15), rgba(34, 211, 238, .08));
+      color: var(--text);
+      text-decoration: none;
       transition: .35s;
     }
 
@@ -359,11 +353,11 @@
     }
 
     .cv-tag {
-      font-size: .75rem;
       padding: 6px 10px;
       border-radius: 10px;
       background: var(--primary);
       color: #020617;
+      font-size: .75rem;
       font-weight: 600;
     }
 
@@ -384,36 +378,31 @@
     .about-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
       align-items: center;
+      gap: 60px;
     }
 
     .about-wrap img { width: 100%; border-radius: 28px; transition: .5s; }
     .about-wrap img:hover { transform: scale(1.05); }
 
-    .skills {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .skill { background: var(--glass); padding: 16px; border-radius: 16px; }
+    .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .skill { padding: 16px; border-radius: 16px; background: var(--glass); }
     .skill-title { margin-bottom: 6px; font-size: .9rem; opacity: .85; }
     .bar { height: 6px; background: rgba(255, 255, 255, .15); border-radius: 20px; }
 
     .fill {
       height: 100%;
       width: 0;
-      background: linear-gradient(90deg, #38bdf8, #22d3ee);
       border-radius: 20px;
+      background: linear-gradient(90deg, #38bdf8, #22d3ee);
       transition: 1.6s ease;
     }
 
     .card {
-      background: var(--glass);
-      backdrop-filter: blur(15px);
       padding: 40px;
       border-radius: 25px;
+      background: var(--glass);
+      backdrop-filter: blur(15px);
     }
 
     .stats {
@@ -459,22 +448,90 @@
     .video a { color: var(--primary); text-decoration: none; font-size: .9rem; }
     footer { text-align: center; padding: 40px; opacity: .6; }
 
-    /* Tablet dan ponsel */
-    @media (min-width: 769px) and (max-width: 1100px) {
-      .business-links { grid-template-columns: 1fr; }
+    /* Tablet */
+    @media (max-width: 1100px) {
+      .hero-wrap { gap: 24px; }
+      .business-links { gap: 8px; }
+      .biz-btn { padding: 12px 9px; }
     }
 
+    /* HP: teks dan foto berdampingan, kartu usaha tetap tiga kolom */
     @media (max-width: 768px) {
-      .hero-wrap, .about-wrap, .skills { grid-template-columns: 1fr; }
-      nav ul { display: none; }
-      .hero h2 { font-size: 2.1rem; }
-      .business-links { grid-template-columns: 1fr; gap: 12px; }
-      .biz-btn { min-width: 100%; padding: 14px; }
-      .cv-mini { max-width: 100%; margin-top: 14px; }
-      .cv-mini a { padding: 14px; }
-      .cv-tag { font-size: .7rem; padding: 5px 9px; }
-      .cv-mini strong { font-size: .85rem; }
-      .cv-mini p { font-size: .7rem; }
+      nav { padding: 12px 4%; }
+      .nav-left { gap: 7px; min-width: 0; }
+      .toggle { min-width: 38px; text-align: center; }
+
+      .hero { min-height: auto; padding: 90px 5% 32px; }
+
+      .hero-wrap {
+        grid-template-columns: minmax(0, 1fr) minmax(90px, 31%);
+        gap: 12px;
+        align-items: start;
+      }
+
+      .hero-wrap > div:first-child { display: contents; }
+
+      .hero h2 {
+        grid-column: 1;
+        font-size: clamp(1.28rem, 5vw, 2.2rem);
+        line-height: 1.1;
+      }
+
+      .hero-wrap > div:first-child > p:first-of-type {
+        grid-column: 1;
+        margin: 0;
+        font-size: clamp(.87rem, 2.6vw, 1rem);
+        line-height: 1.5;
+      }
+
+      .hero-photo {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: start;
+      }
+
+      .hero-photo img { display: block; border-radius: 18px; animation: none; }
+
+      .hero .connect-link,
+      .hero .connect-caption,
+      .business-links,
+      .cv-mini { grid-column: 1 / -1; }
+
+      .hero .connect-link { justify-self: start; margin-top: 4px; }
+      .hero .connect-caption { margin: 0; }
+      .business-links { margin-top: 6px; gap: 6px; }
+      .biz-btn { padding: 10px 7px; gap: 6px; }
+      .biz-btn strong { font-size: clamp(.78rem, 2.75vw, .92rem); }
+      .biz-btn span { font-size: clamp(.70rem, 2.25vw, .8rem); opacity: .9; }
+      .cv-mini { margin-top: 2px; }
+
+      section { padding: 48px 5%; }
+      h3 { font-size: clamp(1.4rem, 5vw, 2rem); margin-bottom: 18px; }
+
+      .about-wrap {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        gap: 14px;
+        align-items: start;
+      }
+
+      .about-wrap p { font-size: .92rem; line-height: 1.5; }
+      .about-wrap img { border-radius: 16px; }
+
+      .skills, .achievements, .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        font-size: .75rem;
+      }
+
+      .stats.card { padding: 18px 8px; }
+      .stat { font-size: 1.65rem; }
+      .work img, .achievement img { height: auto; aspect-ratio: 4 / 3; }
+      .work p, .video { padding: 12px; }
     }
   </style>
 </head>
@@ -491,8 +548,8 @@
       </h1>
     </div>
 
-    <ul></ul>
-    <div class="toggle" onclick="toggleMode()">🌗</div>
+    <button class="toggle" type="button" onclick="toggleMode()"
+            aria-label="Ganti tema terang atau gelap">🌗</button>
   </nav>
 
   <!-- Halaman utama -->
@@ -507,13 +564,13 @@
           untuk event lari.
         </p>
 
-        <!-- Tombol kerja sama: alamat tujuan, subjek, dan pembuka email -->
         <a class="connect-link"
            href="mailto:afriandyaguslihanda@gmail.com?subject=Diskusi%20kerja%20sama%20dengan%20Afriandy&amp;body=Halo%20Afriandy%2C%0A%0ASaya%20ingin%20berdiskusi%20tentang%20kerja%20sama%20untuk%20"
            aria-describedby="connect-caption">
           <strong lang="en"><em>Let’s</em> Connect</strong>
           <span class="connect-arrow" aria-hidden="true">↗</span>
         </a>
+
         <p class="connect-caption" id="connect-caption">
           Punya rencana event atau kampanye brand? Ceritakan lewat email.
         </p>
@@ -524,11 +581,13 @@
             <strong>Racetap.id</strong>
             <span>@racetap.id</span>
           </a>
+
           <a class="biz-btn" href="https://instagram.com/sewamobilpurworejo_"
              target="_blank" rel="noopener noreferrer">
             <strong>Sewa Mobil Purworejo</strong>
             <span>@sewamobilpurworejo_</span>
           </a>
+
           <a class="biz-btn" href="https://instagram.com/rageshop.id"
              target="_blank" rel="noopener noreferrer">
             <strong>Rageshop</strong>
@@ -537,7 +596,7 @@
         </div>
 
         <div class="cv-mini">
-          <a href="cv/CV-Afriandy-Agus-Lihanda.pdf" download rel="noopener noreferrer">
+          <a href="cv/CV-Afriandy-Agus-Lihanda.pdf" download>
             <span class="cv-tag">CV</span>
             <div>
               <strong>Curriculum Vitae</strong>
@@ -633,7 +692,7 @@
     </div>
   </section>
 
-  <!-- Dokumentasi crew -->
+  <!-- Dokumentasi -->
   <section id="portfolio">
     <h3>Dokumentasi Crew Event</h3>
     <div class="grid">
@@ -707,7 +766,7 @@
       document.body.classList.toggle("light");
     }
 
-    /* Tampilkan bagian portofolio dan isi bar keahlian saat digulir */
+    // Tampilkan bagian portofolio dan isi bar keahlian saat halaman digulir.
     const sections = document.querySelectorAll("section");
     const fills = document.querySelectorAll(".fill");
 
@@ -725,7 +784,7 @@
       });
     });
 
-    /* Animasi angka pengalaman */
+    // Jalankan penghitung pengalaman satu kali.
     document.querySelectorAll(".stat").forEach(stat => {
       let done = false;
 
