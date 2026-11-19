@@ -3,26 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' https: data:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
-
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' https: data:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self' 'unsafe-inline';"
+  >
   <meta name="author" content="Afriandy Agus Lihanda">
-  <meta name="description"
-        content="Portofolio Afriandy Agus Lihanda, entrepreneur, content creator, official dan crew event lari, serta penyedia layanan timing system Racetap.id.">
+  <meta
+    name="description"
+    content="Portofolio Afriandy Agus Lihanda, wirausahawan di bidang olahraga dan transportasi, kreator konten, serta kru dan ofisial event lari."
+  >
   <meta property="og:title" content="Afriandy Agus Lihanda | Portofolio">
   <meta property="og:type" content="website">
   <meta property="og:image" content="img/foto-hero.jpg">
 
   <title>Afriandy Agus Lihanda | Entrepreneur &amp; Content Creator</title>
 
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+  >
 
   <style>
-    /* =========================================================
-       TEMA DAN DASAR
-       ========================================================= */
-
+    /* Tema dan pengaturan dasar */
     :root {
       --bg: #020617;
       --text: #e5e7eb;
@@ -30,7 +32,7 @@
       --glass: rgb(255 255 255 / 8%);
       --title-cyan: #67d9ff;
       --title-ice: #d9f2ff;
-      --title-glint: #ffffff;
+      --title-glint: #fff;
       --panel: #0a1c2c;
       --edge: #29495c;
       --signal: #6ce4fa;
@@ -61,9 +63,7 @@
 
     * { box-sizing: border-box; }
 
-    body, h1, h2, h3, p, figure {
-      margin: 0;
-    }
+    body, h1, h2, h3, p, figure { margin: 0; }
 
     body {
       isolation: isolate;
@@ -81,10 +81,7 @@
       outline-offset: 4px;
     }
 
-    /* =========================================================
-       BACKGROUND LINTASAN DAN GARIS PERTUMBUHAN
-       ========================================================= */
-
+    /* Latar lintasan */
     .course-backdrop {
       position: fixed;
       inset: 0;
@@ -113,7 +110,6 @@
       top: 12%;
       width: clamp(400px, 50vw, 800px);
       height: auto;
-      color: white;
       opacity: .77;
       transform: translateX(42%);
     }
@@ -125,17 +121,18 @@
       stroke-opacity: .82;
     }
 
-    .course-athlete {
+    .course-athlete, .course-trail {
       fill: none;
-      stroke-width: 5;
       stroke-linecap: round;
+    }
+
+    .course-athlete {
+      stroke-width: 5;
       stroke-dasharray: .5 99.5;
     }
 
     .course-trail {
-      fill: none;
       stroke-width: 3;
-      stroke-linecap: round;
       stroke-dasharray: 2.5 97.5;
       opacity: .29;
     }
@@ -152,11 +149,7 @@
     }
 
     .light .growth-backdrop { color: #217a79; opacity: .3; }
-
-    .growth-pulse {
-      stroke-dasharray: 11 109;
-      stroke-dashoffset: 12;
-    }
+    .growth-pulse { stroke-dasharray: 11 109; stroke-dashoffset: 12; }
 
     @keyframes growth-trace {
       0%, 12% { stroke-dashoffset: 12; opacity: 0; }
@@ -164,10 +157,7 @@
       80%, 100% { stroke-dashoffset: -100; opacity: 0; }
     }
 
-    /* =========================================================
-       NAVIGASI DAN NAMA
-       ========================================================= */
-
+    /* Navigasi */
     nav {
       position: fixed;
       inset: 0 0 auto;
@@ -187,7 +177,6 @@
     }
 
     .nav-left { min-width: 0; gap: 12px; }
-    .track-actions { gap: 10px; }
 
     .mail-icon, .theme-toggle {
       display: grid;
@@ -220,30 +209,12 @@
       white-space: nowrap;
     }
 
-    .sprint-control {
-      padding: 8px 13px;
-      border: 1px solid #61dbff80;
-      border-radius: 99px;
-      background: #0b2737;
-      color: #d9f5ff;
-      font: 600 .82rem/1.2 Arial, sans-serif;
-      cursor: pointer;
-    }
-
-    .sprint-control[aria-pressed="true"] {
-      color: #102721;
-      background: #c2f89d;
-    }
-
     @keyframes name-glide {
       from { background-position: 100% center; }
       to { background-position: 0% center; }
     }
 
-    /* =========================================================
-       HERO DAN FOTO
-       ========================================================= */
-
+    /* Hero */
     .hero {
       display: flex;
       align-items: center;
@@ -288,10 +259,15 @@
 
     .title-ink.ice { --ink: var(--title-ice); }
 
+    .hero-description, .about-wrap p {
+      text-align: start;
+      line-height: 1.65;
+      text-wrap: pretty;
+    }
+
     .hero-description {
       max-width: 520px;
       margin-top: 15px;
-      line-height: 1.58;
       opacity: .9;
     }
 
@@ -319,9 +295,7 @@
       right: 15%;
       width: 31%;
       height: 5px;
-      background: repeating-linear-gradient(
-        120deg, #74d9ef 0 5px, #0d3949 5px 9px
-      );
+      background: repeating-linear-gradient(120deg, #74d9ef 0 5px, #0d3949 5px 9px);
       pointer-events: none;
     }
 
@@ -351,10 +325,7 @@
       to { background-position: 0% center; transform: none; }
     }
 
-    /* =========================================================
-       LET'S CONNECT DAN PELARI MINI
-       ========================================================= */
-
+    /* Tombol kontak dan animasi pelari */
     .connect-group { display: contents; }
 
     .connect-link {
@@ -447,7 +418,7 @@
       overflow: visible;
     }
 
-    @keyframes sprint-label {
+    @keyframes connect-label {
       0%, 35%, 100% { transform: translate(0, 0) skewX(-7deg); }
       8% { transform: translate(-2px, 1px) skewX(-4deg); }
       14%, 23% { transform: translate(3px, -2px) skewX(-12deg); }
@@ -469,10 +440,7 @@
       to { transform: rotate(34deg); }
     }
 
-    /* =========================================================
-       KARTU USAHA DAN CV
-       ========================================================= */
-
+    /* Kartu bisnis dan CV */
     .business-links {
       position: relative;
       display: grid;
@@ -584,10 +552,7 @@
     .cv-mini strong { font-size: .9rem; }
     .cv-mini p { margin-top: 2px; font-size: .7rem; opacity: .75; }
 
-    /* =========================================================
-       TENTANG SAYA DAN JUDUL BAGIAN
-       ========================================================= */
-
+    /* Tentang Saya dan judul bagian */
     section { padding: 100px 8%; }
 
     section h3 {
@@ -604,7 +569,7 @@
     }
 
     .about-wrap img { width: 100%; border-radius: 28px; }
-    .about-wrap p { line-height: 1.55; }
+    .about-wrap p { max-width: 60ch; }
     .about-wrap p + p { margin-top: .7em; }
 
     .rotating-title, .section-title {
@@ -636,10 +601,7 @@
       50%, 100% { opacity: 0; transform: translateY(-.16em) scale(.97); }
     }
 
-    /* =========================================================
-       KARTU SKILL
-       ========================================================= */
-
+    /* Keahlian */
     .skills {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -670,11 +632,7 @@
     .skill summary::-webkit-details-marker { display: none; }
     .skill[open], .skill:hover { border-color: var(--signal); }
 
-    .skill-lanes {
-      display: flex;
-      gap: 3px;
-      margin-left: 2px;
-    }
+    .skill-lanes { display: flex; gap: 3px; margin-left: 2px; }
 
     .skill-lanes i {
       width: 11px;
@@ -745,10 +703,7 @@
       to { opacity: 1; }
     }
 
-    /* =========================================================
-       PRESTASI, PENGALAMAN, DOKUMENTASI DAN VIDEO
-       ========================================================= */
-
+    /* Prestasi, pengalaman, dokumentasi, dan video */
     .achievements, .stats, .grid { display: grid; }
 
     .achievements {
@@ -807,13 +762,9 @@
     .video { padding: 22px; background: var(--glass); border-radius: 18px; }
     .video a { color: var(--primary); font-size: .9rem; text-decoration: none; }
     .video a:hover { text-decoration: underline; }
-
     footer { padding: 40px 5%; text-align: center; opacity: .65; }
 
-    /* =========================================================
-       ANIMASI
-       ========================================================= */
-
+    /* Animasi */
     @media (prefers-reduced-motion: no-preference) {
       .growth-pulse { animation: growth-trace 14s ease-in-out infinite; }
 
@@ -838,8 +789,7 @@
 
       .connect-link, .connect-caption { animation-delay: .54s; }
       .business-links, .cv-mini { animation-delay: .66s; }
-
-      .connect-link strong { animation: sprint-label 4.8s ease-in-out .5s infinite; }
+      .connect-link strong { animation: connect-label 4.8s ease-in-out .5s infinite; }
       .connect-arrow { transition: transform .22s ease-out; }
 
       .connect-link:is(:hover, :focus-visible, :active) .connect-arrow {
@@ -847,7 +797,6 @@
       }
 
       .biz-btn:hover { transform: translateY(-3px); }
-
       .biz-btn:is(:hover, :focus-visible, :active)::before {
         animation: halo-orbit 5s linear infinite;
       }
@@ -880,15 +829,12 @@
       .biz-btn:nth-child(1)::after { animation: highlight-first 8s ease-in-out infinite; }
       .biz-btn:nth-child(2)::after { animation: highlight-middle 8s ease-in-out infinite; }
       .biz-btn:nth-child(3)::after { animation: highlight-last 8s ease-in-out infinite; }
-
       .skill[open] .skill-example { animation: skill-copy-in .18s ease-out; }
 
       .rotating-label { display: inline-grid; perspective: 400px; }
       .rotating-and { display: none; }
       .rotating-word { grid-area: 1 / 1; justify-self: start; transform-origin: left bottom; }
-
       .rotating-title:not(.scroll-enter) .rotating-word:last-child { opacity: 0; }
-
       .rotating-title.scroll-enter .rotating-word {
         animation: rotating-word-pop 4s ease-out infinite;
       }
@@ -951,10 +897,7 @@
       }
     }
 
-    /* =========================================================
-       TABLET DAN SMARTPHONE
-       ========================================================= */
-
+    /* Tablet dan ponsel */
     @media (max-width: 1100px) {
       .hero-wrap { gap: 24px; }
       .business-links { gap: 8px; }
@@ -964,9 +907,7 @@
     @media (max-width: 768px) {
       nav { padding: 12px 4%; gap: 4px; }
       .nav-left { gap: 7px; }
-      .track-actions { gap: 3px; }
       .theme-toggle { width: 34px; height: 34px; }
-      .sprint-control { padding: 8px; font-size: .73rem; }
 
       .course-backdrop svg {
         top: 16%;
@@ -999,11 +940,8 @@
         align-self: center;
         max-width: none;
         margin: 0;
-        text-align: justify;
-        text-align-last: start;
-        hyphens: auto;
         font-size: clamp(.87rem, 2.6vw, 1rem);
-        line-height: 1.5;
+        line-height: 1.55;
       }
 
       .hero-photo {
@@ -1028,7 +966,6 @@
       }
 
       .hero-photo::after { right: 10%; height: 3px; }
-
       .connect-group, .business-links, .cv-mini { grid-column: 1 / -1; }
 
       .connect-group {
@@ -1088,14 +1025,7 @@
       }
 
       .about-wrap img { border-radius: 16px; }
-
-      .about-wrap p {
-        text-align: justify;
-        text-align-last: start;
-        hyphens: auto;
-        font-size: .92rem;
-        line-height: 1.5;
-      }
+      .about-wrap p { font-size: .92rem; line-height: 1.55; }
 
       .skills, .achievements, .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1176,7 +1106,7 @@
     }
 
     @media (forced-colors: active), print {
-      .course-backdrop, .growth-backdrop, .sprint-control { display: none; }
+      .course-backdrop, .growth-backdrop { display: none; }
     }
   </style>
 </head>
@@ -1188,19 +1118,17 @@
     <defs>
       <path id="growth-line" pathLength="100"
             d="M3 110 C36 110 43 91 65 91 S95 103 116 83
-               S143 58 164 64 S191 71 213 51 S243 39 259 33
-               S281 16 303 12"/>
+               S143 58 164 64 S191 71 213 51 S243 39 259 33 S281 16 303 12"/>
     </defs>
     <g stroke="currentColor">
       <path d="M3 114H305" stroke-opacity=".15"/>
       <use href="#growth-line" stroke-width="1.3" stroke-opacity=".6"/>
-      <use href="#growth-line" class="growth-pulse" stroke-width="2.4"
-           stroke-linecap="round"/>
+      <use href="#growth-line" class="growth-pulse" stroke-width="2.4" stroke-linecap="round"/>
       <circle cx="303" cy="12" r="3" fill="currentColor" stroke="none"/>
     </g>
   </svg>
 
-  <!-- Lintasan biru-putih dengan empat lajur -->
+  <!-- Lintasan lari -->
   <div class="course-backdrop" aria-hidden="true">
     <svg viewBox="0 0 450 295" fill="none" focusable="false">
       <defs>
@@ -1218,7 +1146,6 @@
         <path fill="#226ec0" fill-rule="evenodd"
               d="M190 48H312 A94 94 0 0 1 312 236H122 A94 94 0 0 1 122 48Z
                  M190 84H312 A58 58 0 0 1 312 200H122 A58 58 0 0 1 122 84Z"/>
-
         <g class="course-lines">
           <path d="M190 48H312 A94 94 0 0 1 312 236H122 A94 94 0 0 1 122 48Z"/>
           <path d="M190 57H312 A85 85 0 0 1 312 227H122 A85 85 0 0 1 122 57Z"/>
@@ -1256,17 +1183,10 @@
       <a class="mail-icon"
          href="mailto:afriandyaguslihanda@gmail.com?subject=Kerja%20Sama%20Afriandy"
          aria-label="Kirim email untuk kerja sama">📩</a>
-
-      <h1 class="profile-name">
-        <span>AFRIANDY AGUS LIHANDA</span>
-      </h1>
+      <h1 class="profile-name"><span>AFRIANDY AGUS LIHANDA</span></h1>
     </div>
 
     <div class="track-actions">
-      <button class="sprint-control" id="sprint-control" type="button"
-              aria-label="Mode sprint lintasan" aria-pressed="false" hidden>
-        Sprint
-      </button>
       <button class="theme-toggle" id="theme-toggle" type="button"
               aria-label="Mode terang" aria-pressed="false">🌗</button>
     </div>
@@ -1287,17 +1207,15 @@
           </h2>
 
           <p class="hero-description">
-            Wirausahawan di bidang olahraga dan transportasi, konten kreator,
-            serta crew &amp; volunteer di berbagai bidang. Melalui
-            <strong>Racetap.id</strong>, saya menyediakan layanan timing system
-            untuk event lari.
+            Saya seorang wirausahawan di bidang olahraga dan transportasi,
+            sekaligus kreator konten. Saya juga aktif sebagai kru dan
+            relawan di berbagai bidang.
           </p>
 
           <div class="connect-group">
             <a class="connect-link"
                href="mailto:afriandyaguslihanda@gmail.com?subject=Diskusi%20kerja%20sama%20dengan%20Afriandy&amp;body=Halo%20Afriandy%2C%0A%0ASaya%20ingin%20berdiskusi%20tentang%20kerja%20sama%20untuk%20"
                aria-describedby="connect-caption">
-
               <span class="track-runner" aria-hidden="true">
                 <svg viewBox="0 0 26 27" fill="none" stroke-linecap="round"
                      stroke-linejoin="round" focusable="false">
@@ -1318,8 +1236,7 @@
               <span class="connect-arrow" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2.2"
-                     stroke-linecap="round" stroke-linejoin="round"
-                     focusable="false">
+                     stroke-linecap="round" stroke-linejoin="round" focusable="false">
                   <path d="M5 17 17.5 7M10 7h8l-1 8"/>
                   <path d="M3 11h4M2 14h2" stroke-width="1.4"/>
                 </svg>
@@ -1331,20 +1248,17 @@
             </p>
           </div>
 
-          <!-- Kartu usaha -->
           <div class="business-links" role="group" aria-label="Profil Instagram bisnis">
             <a class="biz-btn" href="https://www.instagram.com/racetap.id/"
                target="_blank" rel="noopener noreferrer">
               <strong>Racetap.id</strong>
               <span>@racetap.id</span>
             </a>
-
             <a class="biz-btn" href="https://instagram.com/sewamobilpurworejo_"
                target="_blank" rel="noopener noreferrer">
               <strong>Sewa Mobil Purworejo</strong>
               <span>@sewamobil<wbr>purworejo_</span>
             </a>
-
             <a class="biz-btn" href="https://instagram.com/rageshop.id"
                target="_blank" rel="noopener noreferrer">
               <strong>Rageshop</strong>
@@ -1376,14 +1290,12 @@
         <div>
           <h3><span class="title-ink">TENTANG SAYA</span></h3>
           <p>
-            Seorang pengusaha yang merintis dari nol, sering terlibat sebagai
-            crew/official di event lari atau volunteer di beberapa bidang,
-            serta aktif sebagai content creator di sosial media TikTok dan Instagram.
+            Saya merintis usaha dari nol dan terus mengejar mimpi saya
+            dengan semangat yang selalu menyala.
           </p>
           <p>
-            Di Racetap.id, saya membantu penyelenggara lomba memeriksa chip
-            pada BIB peserta sebelum start, mencatat waktu lari dengan chip RFID,
-            dan menampilkan hasil lomba.
+            Saya juga aktif sebagai kru dan ofisial di berbagai ajang lari,
+            serta membuat konten untuk TikTok dan Instagram.
           </p>
         </div>
       </div>
@@ -1490,9 +1402,7 @@
       <div class="achievements">
         <figure class="achievement">
           <img src="img/prestasi-1.jpeg" alt="">
-          <figcaption>
-            Juara 2 Lari Estafet 4x100M dan Juara 3 Lari 400M POR BAPOMI DIY
-          </figcaption>
+          <figcaption>Juara 2 Lari Estafet 4x100M dan Juara 3 Lari 400M POR BAPOMI DIY</figcaption>
         </figure>
         <figure class="achievement">
           <img src="img/prestasi-2.jpeg" alt="">
@@ -1512,7 +1422,6 @@
     <!-- Pengalaman -->
     <section id="experience">
       <h3 class="section-title">PENGALAMAN</h3>
-
       <div class="stats">
         <div><strong class="stat" data-num="50">50+</strong>OFFICIAL/CREW EVENT</div>
         <div><strong class="stat" data-num="15">15+</strong>BRAND ENDORSE</div>
@@ -1523,7 +1432,6 @@
     <!-- Dokumentasi crew -->
     <section id="portfolio">
       <h3 class="section-title">DOKUMENTASI CREW EVENT</h3>
-
       <div class="grid">
         <figure class="work">
           <img src="img/crew-1.jpg" alt="">
@@ -1555,51 +1463,65 @@
     <!-- Video endorse -->
     <section id="videos">
       <h3 class="section-title">VIDEO ENDORSE BRAND</h3>
-
       <div class="grid">
-        <div class="video"><strong>Sport Station</strong><br>
+        <div class="video">
+          <strong>Sport Station</strong><br>
           <a href="https://www.instagram.com/reel/C6nrmZ6yPlP/?igsh=bWtpa3p2czYyYTQw">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>PlanetSports.Asia</strong><br>
+        <div class="video">
+          <strong>PlanetSports.Asia</strong><br>
           <a href="https://www.instagram.com/reel/C_b-s7ey3M2/?igsh=OXF2bDV4cGF5bTA=">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>HOKA</strong><br>
+        <div class="video">
+          <strong>HOKA</strong><br>
           <a href="https://www.instagram.com/reel/C5z2QVzyBS9/?igsh=MWU4bDdlaXJneWVv">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>Reebok</strong><br>
+        <div class="video">
+          <strong>Reebok</strong><br>
           <a href="https://www.instagram.com/reel/C8JIvB8y5Sc/?igsh=MXJ1ZWVtaW9raDd2MQ==">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>New Balance</strong><br>
+        <div class="video">
+          <strong>New Balance</strong><br>
           <a href="https://www.instagram.com/reel/DB8n644ABXf/?igsh=YXl2ejE0N3VyZWhr">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>Tiento</strong><br>
+        <div class="video">
+          <strong>Tiento</strong><br>
           <a href="https://www.instagram.com/reel/DDHgw-bTCTw/?igsh=Y3IzcTV0dHFjM3Nt">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>Erafone</strong><br>
+        <div class="video">
+          <strong>Erafone</strong><br>
           <a href="https://www.instagram.com/reel/DRZBB4pE-Zc/?igsh=MW44cjV6aXJ5Y242NA==">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>MS Glow Men</strong><br>
+        <div class="video">
+          <strong>MS Glow Men</strong><br>
           <a href="https://www.instagram.com/reel/DPVeEomE6X8/?igsh=MThnaXRyMnJqMHdubQ==">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>Fisik Sport</strong><br>
+        <div class="video">
+          <strong>Fisik Sport</strong><br>
           <a href="https://www.instagram.com/reel/DOgH9Nak8K2/?igsh=MTFnM3ZpMzA2M2Q5NQ==">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>Napoleon</strong><br>
+        <div class="video">
+          <strong>Napoleon</strong><br>
           <a href="https://www.instagram.com/reel/C6YJAasS8Pn/?igsh=ZmFlMnl0YTJ1bjV0">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>Huawei</strong><br>
+        <div class="video">
+          <strong>Huawei</strong><br>
           <a href="https://www.instagram.com/reel/DLhT7wzzxSa/?igsh=MWwxajVxOTg1MnZyYQ==">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>Coast To Coast</strong><br>
+        <div class="video">
+          <strong>Coast To Coast</strong><br>
           <a href="https://www.instagram.com/reel/DEb7W1UzOkK/?igsh=MWQxdjJicnpyMjhlZA==">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>Nutriflakes</strong><br>
+        <div class="video">
+          <strong>Nutriflakes</strong><br>
           <a href="https://www.instagram.com/reel/DECA0M3Tm4g/?igsh=dGQ1MzZmcmpyMjNh">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>On Point</strong><br>
+        <div class="video">
+          <strong>On Point</strong><br>
           <a href="https://www.instagram.com/reel/DDekngGSqOv/?igsh=MWJxejRzYm1tMXp6aw==">▶ Lihat Video</a>
         </div>
-        <div class="video"><strong>NVL</strong><br>
+        <div class="video">
+          <strong>NVL</strong><br>
           <a href="https://www.instagram.com/reel/C3mnY9gyL-c/?igsh=ZTd3c2ZiMHNnNmNi">▶ Lihat Video</a>
         </div>
       </div>
@@ -1619,9 +1541,8 @@
       themeButton.setAttribute("aria-pressed", String(lightMode));
     });
 
-    /* Animasi lintasan dan tombol Sprint */
+    /* Animasi lintasan */
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sprintButton = document.getElementById("sprint-control");
     const trackAnimations = [];
     const lapDurations = [14000, 17000, 15500, 19000];
 
@@ -1647,8 +1568,6 @@
     });
 
     function syncTrackMotion() {
-      sprintButton.hidden = motionPreference.matches || trackAnimations.length === 0;
-
       for (const animation of trackAnimations) {
         if (motionPreference.matches || document.hidden) {
           animation.pause();
@@ -1657,21 +1576,6 @@
         }
       }
     }
-
-    sprintButton.addEventListener("click", () => {
-      const sprintActive = sprintButton.getAttribute("aria-pressed") !== "true";
-      sprintButton.setAttribute("aria-pressed", String(sprintActive));
-
-      for (const animation of trackAnimations) {
-        const rate = sprintActive ? 2.6 : 1;
-
-        if (typeof animation.updatePlaybackRate === "function") {
-          animation.updatePlaybackRate(rate);
-        } else {
-          animation.playbackRate = rate;
-        }
-      }
-    });
 
     motionPreference.addEventListener("change", syncTrackMotion);
     document.addEventListener("visibilitychange", syncTrackMotion);
@@ -1691,13 +1595,15 @@
 
         stat.textContent = progress === 1 ? target + "+" : String(count);
 
-        if (progress < 1) requestAnimationFrame(update);
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
       }
 
       requestAnimationFrame(update);
     }
 
-    /* Jalankan animasi sekali ketika elemen memasuki layar */
+    /* Animasi saat bagian halaman memasuki layar */
     const entries = document.querySelectorAll([
       "section",
       "section h3",
