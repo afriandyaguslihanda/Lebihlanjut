@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -110,8 +115,25 @@
       top: 12%;
       width: clamp(400px, 50vw, 800px);
       height: auto;
-      opacity: .77;
+      opacity: .29;
       transform: translateX(42%);
+    }
+
+    /* Pendar hanya muncul sesaat saat pengunjung berinteraksi. */
+    .course-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: clamp(170px, 24vw, 310px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--signal), transparent 70%);
+      opacity: 0;
+      transition: opacity .55s ease-out;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .course-glow.is-active { opacity: .12; }
     }
 
     .course-lines {
@@ -272,30 +294,36 @@
     }
 
     .hero-photo {
+      --rim: clamp(4px, .6vw, 8px);
+      --corner: clamp(14px, 2.5vw, 30px);
       position: relative;
       isolation: isolate;
       justify-self: center;
       width: min(100%, 420px);
-      padding: 7px;
+      padding: var(--rim);
       border: 1px solid var(--frame-edge);
-      border-radius: 56px 12px 40px 12px;
+      border-radius: var(--corner);
       background: var(--frame-surface);
-      box-shadow: 0 22px 60px #01102132;
+      box-shadow: 0 12px 32px rgb(2 15 27 / 13%);
     }
 
     .hero-photo img {
       width: 100%;
-      border-radius: 50px 7px 34px 7px;
+      border-radius: calc(var(--corner) - var(--rim));
     }
 
+    /* Dua garis tipis mengikuti tikungan bingkai. */
     .hero-photo::after {
       content: "";
       position: absolute;
-      bottom: 0;
-      right: 15%;
-      width: 31%;
-      height: 5px;
-      background: repeating-linear-gradient(120deg, #74d9ef 0 5px, #0d3949 5px 9px);
+      top: 1px;
+      right: 1px;
+      width: 26%;
+      height: 21%;
+      border: double var(--title-cyan);
+      border-width: 3px 3px 0 0;
+      border-top-right-radius: calc(var(--corner) - 1px);
+      opacity: .52;
       pointer-events: none;
     }
 
@@ -311,8 +339,19 @@
     }
 
     @keyframes opening-photo {
-      from { clip-path: inset(0 100% 0 0 round 14px); }
-      to { clip-path: inset(0 round 14px); }
+      from { opacity: 0; transform: translateY(9px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes portrait-reveal {
+      from { clip-path: inset(0 0 100% round calc(var(--corner) - var(--rim))); }
+      to { clip-path: inset(0 round calc(var(--corner) - var(--rim))); }
+    }
+
+    @keyframes corner-draw {
+      from { clip-path: inset(0 100% 100% 0); }
+      55% { clip-path: inset(0 0 85% 0); }
+      to { clip-path: inset(0); }
     }
 
     @keyframes opening-rise {
@@ -781,7 +820,9 @@
 
       .opening-line { animation: opening-line .72s ease-out .12s backwards; }
       .opening-line:nth-child(2) { animation-delay: .26s; }
-      .hero-photo { animation: opening-photo .95s ease-out .24s backwards; }
+      .hero-photo { animation: opening-photo .5s ease-out .08s backwards; }
+      .hero-photo img { animation: portrait-reveal .85s cubic-bezier(.22, .75, .18, 1) .18s backwards; }
+      .hero-photo::after { animation: corner-draw .72s ease-in-out .48s backwards; }
 
       .hero-description, .connect-link, .connect-caption, .business-links, .cv-mini {
         animation: opening-rise .5s ease-out .42s backwards;
@@ -913,7 +954,7 @@
         top: 16%;
         width: clamp(270px, 78vw, 420px);
         transform: translateX(53%);
-        opacity: .64;
+        opacity: .21;
       }
 
       .course-backdrop::before { opacity: .09; }
@@ -950,22 +991,19 @@
         align-self: stretch;
         width: 100%;
         min-height: clamp(108px, 23vw, 160px);
-        padding: 0;
-        overflow: hidden;
-        border-radius: 24px 6px 17px 6px;
+        --rim: 3px;
+        --corner: 15px;
       }
 
       .hero-photo img {
         position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: inherit;
+        inset: var(--rim);
+        width: calc(100% - 2 * var(--rim));
+        height: calc(100% - 2 * var(--rim));
         object-fit: cover;
         object-position: center 32%;
       }
 
-      .hero-photo::after { right: 10%; height: 3px; }
       .connect-group, .business-links, .cv-mini { grid-column: 1 / -1; }
 
       .connect-group {
@@ -1130,6 +1168,7 @@
 
   <!-- Lintasan lari -->
   <div class="course-backdrop" aria-hidden="true">
+    <span class="course-glow"></span>
     <svg viewBox="0 0 450 295" fill="none" focusable="false">
       <defs>
         <path id="lane-one" pathLength="100"
@@ -1581,6 +1620,40 @@
     document.addEventListener("visibilitychange", syncTrackMotion);
     syncTrackMotion();
 
+    /* Ikuti kursor atau sentuhan dengan satu pendar di belakang konten. */
+    const glow = document.querySelector(".course-glow");
+    let glowFrame = 0;
+    let glowTimeout;
+    let glowX = 0;
+    let glowY = 0;
+
+    function hideGlow() {
+      cancelAnimationFrame(glowFrame);
+      glowFrame = 0;
+      clearTimeout(glowTimeout);
+      glow.classList.remove("is-active");
+    }
+
+    function moveGlow(event) {
+      if (motionPreference.matches || !event.isPrimary) return;
+      glowX = event.clientX;
+      glowY = event.clientY;
+      if (glowFrame) return;
+      glowFrame = requestAnimationFrame(() => {
+        glowFrame = 0;
+        glow.style.transform = "translate(" + glowX + "px, " + glowY + "px) translate(-50%, -50%)";
+        glow.classList.add("is-active");
+        clearTimeout(glowTimeout);
+        glowTimeout = setTimeout(hideGlow, 450);
+      });
+    }
+
+    window.addEventListener("pointermove", moveGlow, { passive: true });
+    window.addEventListener("pointerdown", moveGlow, { passive: true });
+    document.documentElement.addEventListener("pointerleave", hideGlow);
+    window.addEventListener("blur", hideGlow);
+    motionPreference.addEventListener("change", hideGlow);
+
     /* Penghitung angka pengalaman */
     function animateStat(stat) {
       if (motionPreference.matches) return;
@@ -1649,3 +1722,7 @@
   </script>
 </body>
 </html>
+
+
+
+
