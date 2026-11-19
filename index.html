@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -780,8 +781,34 @@
     }
 
     .achievement img { object-position: center top; }
-    .achievement:hover img { transform: scale(1.05); }
-    .work:hover img { transform: scale(1.08); }
+    .photo-glass {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: 16px 16px 0 0;
+    }
+    .photo-glass::before, .photo-glass::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      border-radius: inherit;
+    }
+    .photo-glass::before {
+      box-shadow: inset 0 0 0 1px rgb(174 228 255 / 35%);
+      background: linear-gradient(145deg, rgb(222 249 255 / 12%), transparent 35%);
+    }
+    .photo-glass::after {
+      opacity: 0;
+      background: radial-gradient(ellipse 52% 65% at var(--glint-x, 50%) var(--glint-y, 40%),
+        rgb(238 253 255 / 34%), rgb(140 212 255 / 10%) 50%, transparent);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .photo-glass::after { transition: opacity .24s ease-out; }
+      .photo-glass.glint-active::after { opacity: 1; }
+      .photo-glass.glint-active img { transform: scale(1.025); }
+    }
 
     .achievement figcaption {
       padding: 10px;
@@ -1512,19 +1539,19 @@
 
       <div class="achievements">
         <figure class="achievement">
-          <img src="img/prestasi-1.jpeg" alt="">
+          <div class="photo-glass"><img src="img/prestasi-1.jpeg" alt=""></div>
           <figcaption>Juara 2 Lari Estafet 4x100M dan Juara 3 Lari 400M POR BAPOMI DIY</figcaption>
         </figure>
         <figure class="achievement">
-          <img src="img/prestasi-2.jpeg" alt="">
+          <div class="photo-glass"><img src="img/prestasi-2.jpeg" alt=""></div>
           <figcaption>Juara Bertahan Amazing Race 2023–2025</figcaption>
         </figure>
         <figure class="achievement">
-          <img src="img/prestasi-3..jpeg" alt="">
+          <div class="photo-glass"><img src="img/prestasi-3..jpeg" alt=""></div>
           <figcaption>2 Medali Emas dan 1 Perak PORSENIGAMA UGM 2022</figcaption>
         </figure>
         <figure class="achievement">
-          <img src="img/prestasi-4.jpeg" alt="">
+          <div class="photo-glass"><img src="img/prestasi-4.jpeg" alt=""></div>
           <figcaption>Amazing Race 2024</figcaption>
         </figure>
       </div>
@@ -1545,27 +1572,27 @@
       <h3 class="section-title">DOKUMENTASI CREW EVENT</h3>
       <div class="grid">
         <figure class="work">
-          <img src="img/crew-1.jpg" alt="">
+          <div class="photo-glass"><img src="img/crew-1.jpg" alt=""></div>
           <figcaption>CAPTAIN MARSHAL</figcaption>
         </figure>
         <figure class="work">
-          <img src="img/crew-2.jpg" alt="">
+          <div class="photo-glass"><img src="img/crew-2.jpg" alt=""></div>
           <figcaption>START-FINISH TEAM</figcaption>
         </figure>
         <figure class="work">
-          <img src="img/crew-3.jpg" alt="">
+          <div class="photo-glass"><img src="img/crew-3.jpg" alt=""></div>
           <figcaption>OFFICIAL TIMING MEDAN BLOT RUN</figcaption>
         </figure>
         <figure class="work">
-          <img src="img/crew-4.jpg" alt="">
+          <div class="photo-glass"><img src="img/crew-4.jpg" alt=""></div>
           <figcaption>TIMING SYSTEM DIENG CALDERA RUN</figcaption>
         </figure>
         <figure class="work">
-          <img src="img/crew-5.jpg" alt="">
+          <div class="photo-glass"><img src="img/crew-5.jpg" alt=""></div>
           <figcaption>CAPTAIN CCTV</figcaption>
         </figure>
         <figure class="work">
-          <img src="img/crew-6.jpg" alt="">
+          <div class="photo-glass"><img src="img/crew-6.jpg" alt=""></div>
           <figcaption>MARSHAL</figcaption>
         </figure>
       </div>
@@ -1725,6 +1752,32 @@
     document.documentElement.addEventListener("pointerleave", hideGlow);
     window.addEventListener("blur", hideGlow);
     motionPreference.addEventListener("change", hideGlow);
+
+    /* Pantulan mengikuti titik interaksi tanpa menghalangi guliran. */
+    for (const surface of document.querySelectorAll(".photo-glass")) {
+      let fadeTimer;
+      function clearReflection() {
+        clearTimeout(fadeTimer);
+        surface.classList.remove("glint-active");
+      }
+      function reflect(event) {
+        if (motionPreference.matches || !event.isPrimary) return;
+        const bounds = surface.getBoundingClientRect();
+        surface.style.setProperty("--glint-x", (event.clientX - bounds.left) + "px");
+        surface.style.setProperty("--glint-y", (event.clientY - bounds.top) + "px");
+        clearTimeout(fadeTimer);
+        surface.classList.add("glint-active");
+      }
+      surface.addEventListener("pointermove", reflect, { passive: true });
+      surface.addEventListener("pointerdown", reflect, { passive: true });
+      surface.addEventListener("pointerup", event => {
+        if (event.pointerType !== "mouse") fadeTimer = setTimeout(clearReflection, 180);
+      });
+      surface.addEventListener("pointerleave", event => {
+        if (event.pointerType === "mouse") clearReflection();
+      });
+      surface.addEventListener("pointercancel", clearReflection);
+    }
 
     /* Penghitung angka pengalaman */
     function animateStat(stat) {
