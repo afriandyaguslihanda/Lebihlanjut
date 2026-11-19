@@ -1,8 +1,5 @@
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -193,14 +190,7 @@
       backdrop-filter: blur(15px);
     }
 
-    .nav-left, .track-actions {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-left { min-width: 0; gap: 12px; }
-
-    .mail-icon, .theme-toggle {
+    .theme-toggle {
       display: grid;
       place-items: center;
       flex-shrink: 0;
@@ -214,21 +204,46 @@
       cursor: pointer;
     }
 
-    .mail-icon:hover, .theme-toggle:hover {
+    .theme-toggle:hover {
       border-color: #7dd3fc;
       background: #153449;
     }
 
     .profile-name {
-      padding: .25em .55em;
-      border: 1px solid #38bdf870;
-      border-radius: .5em;
-      background: #061426;
+      position: relative;
+      padding: .28em .62em .3em;
+      border: 1px solid #5791ae;
+      border-radius: .62em .25em .62em .25em;
+      background: linear-gradient(135deg, #122f43, #071726 65%);
+      box-shadow: inset 0 1px rgb(197 238 255 / 12%), 0 2px 12px rgb(12 65 91 / 24%);
+      min-width: 0;
       color: #91e6ff;
-      box-shadow: 0 0 14px #38bdf82b;
-      font: 400 clamp(1.02rem, 4.3vw, 1.65rem)/1.2 Anton, "Arial Narrow", sans-serif;
-      letter-spacing: .035em;
-      white-space: nowrap;
+      font: 400 clamp(1.05rem, 3.8vw, 1.65rem)/1.18 Anton, "Arial Narrow", sans-serif;
+      letter-spacing: .045em;
+      text-wrap: balance;
+    }
+
+    .name-sketch {
+      position: absolute;
+      overflow: visible;
+      pointer-events: none;
+      fill: none;
+      stroke: #8bddf6;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+    }
+
+    .name-sketch.upper { width: .95em; top: -.26em; left: -.24em; }
+    .name-sketch.lower { width: 1.9em; right: .26em; bottom: -.26em; }
+    @media (prefers-reduced-motion: no-preference) {
+      .name-sketch path {
+        stroke-dasharray: 1;
+        animation: name-sketch-in .72s ease-out .12s backwards;
+      }
+      @keyframes name-sketch-in {
+        from { stroke-dashoffset: 1; }
+        to { stroke-dashoffset: 0; }
+      }
     }
 
     @keyframes name-glide {
@@ -985,8 +1000,7 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 12px 4%; gap: 4px; }
-      .nav-left { gap: 7px; }
+      nav { padding: 12px 5%; gap: 12px; }
       .theme-toggle { width: 34px; height: 34px; }
 
       .course-backdrop svg {
@@ -1137,12 +1151,6 @@
       .skill-example { padding: 0 9px 12px; }
     }
 
-    @media (max-width: 390px) {
-      nav { padding-inline: 8px; }
-      .nav-left { gap: 4px; }
-      .profile-name { font-size: .96rem; }
-    }
-
     @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
       .scroll-enter:not(section):not(.skill):not(.section-title) {
         animation: rise-in .54s cubic-bezier(.2, .7, .2, 1) backwards;
@@ -1257,17 +1265,19 @@
 
   <!-- Navigasi -->
   <nav aria-label="Navigasi utama">
-    <div class="nav-left">
-      <a class="mail-icon"
-         href="mailto:afriandyaguslihanda@gmail.com?subject=Kerja%20Sama%20Afriandy"
-         aria-label="Kirim email untuk kerja sama">📩</a>
-      <h1 class="profile-name"><span>AFRIANDY AGUS LIHANDA</span></h1>
-    </div>
-
-    <div class="track-actions">
-      <button class="theme-toggle" id="theme-toggle" type="button"
+    <h1 class="profile-name">
+      <svg class="name-sketch upper" viewBox="0 0 26 14" aria-hidden="true" focusable="false">
+        <path pathLength="1" d="M2 12Q7 6 13 2"/>
+        <path pathLength="1" d="M10 11Q16 6 23 3" opacity=".62"/>
+      </svg>
+      <span>AFRIANDY AGUS LIHANDA</span>
+      <svg class="name-sketch lower" viewBox="0 0 58 11" aria-hidden="true" focusable="false">
+        <path pathLength="1" d="M2 7Q18 2 36 4T56 2"/>
+        <path pathLength="1" d="M20 9Q32 6 45 7" opacity=".55"/>
+      </svg>
+    </h1>
+    <button class="theme-toggle" id="theme-toggle" type="button"
               aria-label="Mode terang" aria-pressed="false">🌗</button>
-    </div>
   </nav>
 
   <main>
