@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -308,7 +309,7 @@
       opacity: .9;
     }
 
-    .hero-photo {
+    .portrait-frame {
       --rim: clamp(4px, .6vw, 8px);
       --corner: clamp(14px, 2.5vw, 30px);
       position: relative;
@@ -322,13 +323,13 @@
       box-shadow: 0 12px 32px rgb(2 15 27 / 13%);
     }
 
-    .hero-photo img {
+    .portrait-frame img {
       width: 100%;
       border-radius: calc(var(--corner) - var(--rim));
     }
 
     /* Dua garis tipis mengikuti tikungan bingkai. */
-    .hero-photo::after {
+    .portrait-frame::after {
       content: "";
       position: absolute;
       top: 1px;
@@ -622,7 +623,7 @@
       gap: 60px;
     }
 
-    .about-wrap img { width: 100%; border-radius: 28px; }
+    .about-photo { width: 100%; }
     .about-wrap p { max-width: 60ch; }
     .about-wrap p + p { margin-top: .7em; }
 
@@ -1115,7 +1116,7 @@
         gap: 14px;
       }
 
-      .about-wrap img { border-radius: 16px; }
+      .about-photo { --rim: 3px; --corner: 15px; }
       .about-wrap p { font-size: .92rem; line-height: 1.55; }
 
       .skills, .achievements, .grid {
@@ -1192,6 +1193,26 @@
 
     @media (forced-colors: active), print {
       .course-backdrop, .growth-backdrop { display: none; }
+    }
+    /* Garis lintasan melebar di bawah judul saat pertama terlihat. */
+    #about h3::after {
+      content: "";
+      display: block;
+      width: 2.75em;
+      height: 4px;
+      margin-top: .25em;
+      background: linear-gradient(90deg, var(--primary) 70%, transparent 70% 77%, var(--title-cyan) 77% 89%, transparent 89% 94%, var(--title-cyan) 94%);
+      transform: skewX(-22deg);
+      transform-origin: left;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      #about h3.scroll-enter::after {
+        animation: about-track-in .85s cubic-bezier(.2,.7,.2,1) .12s backwards;
+      }
+      @keyframes about-track-in {
+        from { opacity: 0; transform: skewX(-22deg) scaleX(.06); }
+        to { opacity: 1; transform: skewX(-22deg) scaleX(1); }
+      }
     }
   </style>
 </head>
@@ -1319,7 +1340,7 @@
                 </svg>
               </span>
 
-              <strong lang="en"><em>Let’s</em> Connect</strong>
+              <strong lang="en"><em>Let’s</em> Connect!</strong>
 
               <span class="connect-arrow" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -1365,7 +1386,7 @@
           </div>
         </div>
 
-        <div class="hero-photo">
+        <div class="hero-photo portrait-frame">
           <img src="img/foto-hero.jpg" alt="Afriandy Agus Lihanda">
         </div>
       </div>
@@ -1374,7 +1395,9 @@
     <!-- Tentang Saya -->
     <section id="about">
       <div class="about-wrap">
-        <img src="img/IMG_1601 (1).JPEG" alt="Afriandy Agus Lihanda">
+        <div class="portrait-frame about-photo">
+          <img src="img/IMG_1601 (1).JPEG" alt="Afriandy Agus Lihanda">
+        </div>
         <div>
           <h3><span class="title-ink">TENTANG SAYA</span></h3>
           <p>
@@ -1732,7 +1755,7 @@
       ".achievement",
       ".work",
       ".video",
-      ".about-wrap img",
+      ".about-photo",
       ".about-wrap p",
       ".stats"
     ].join(", "));
