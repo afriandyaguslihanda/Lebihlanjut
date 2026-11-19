@@ -798,9 +798,48 @@
       gap: 30px;
     }
 
-    .video { padding: 22px; background: var(--glass); border-radius: 18px; }
-    .video a { color: var(--primary); font-size: .9rem; text-decoration: none; }
-    .video a:hover { text-decoration: underline; }
+    .video {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 20px;
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--frame-edge);
+      border-radius: 17px;
+      background: linear-gradient(145deg, rgb(126 205 239 / 17%), transparent 64%), var(--glass);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      box-shadow: inset 0 1px rgb(255 255 255 / 15%), 0 5px 16px rgb(0 10 25 / 8%);
+    }
+
+    .video strong { display: block; overflow-wrap: anywhere; }
+    .video .watch { display: block; margin-top: .55em; color: var(--title-cyan); font-size: .86rem; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .video::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background: linear-gradient(115deg, transparent 28%, rgb(182 229 255 / 19%) 50%, transparent 72%);
+        transform: translateX(-110%);
+        pointer-events: none;
+      }
+      .video.scroll-enter::before {
+        animation: glass-pass .9s ease-out var(--entry-delay, 0ms) backwards;
+      }
+      @keyframes glass-pass {
+        from { transform: translateX(-110%); }
+        to { transform: translateX(110%); }
+      }
+      .video { transition: translate .22s ease, border-color .22s; }
+      .video:focus-visible { translate: 0 -2px; border-color: var(--signal); }
+      @media (hover: hover) {
+        .video:hover { translate: 0 -3px; border-color: var(--signal); }
+      }
+      .video:active { translate: 0 1px; }
+    }
     footer { padding: 40px 5%; text-align: center; opacity: .65; }
 
     /* Animasi */
@@ -1503,66 +1542,66 @@
     <section id="videos">
       <h3 class="section-title">VIDEO ENDORSE BRAND</h3>
       <div class="grid">
-        <div class="video">
-          <strong>Sport Station</strong><br>
-          <a href="https://www.instagram.com/reel/C6nrmZ6yPlP/?igsh=bWtpa3p2czYyYTQw">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>PlanetSports.Asia</strong><br>
-          <a href="https://www.instagram.com/reel/C_b-s7ey3M2/?igsh=OXF2bDV4cGF5bTA=">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>HOKA</strong><br>
-          <a href="https://www.instagram.com/reel/C5z2QVzyBS9/?igsh=MWU4bDdlaXJneWVv">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>Reebok</strong><br>
-          <a href="https://www.instagram.com/reel/C8JIvB8y5Sc/?igsh=MXJ1ZWVtaW9raDd2MQ==">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>New Balance</strong><br>
-          <a href="https://www.instagram.com/reel/DB8n644ABXf/?igsh=YXl2ejE0N3VyZWhr">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>Tiento</strong><br>
-          <a href="https://www.instagram.com/reel/DDHgw-bTCTw/?igsh=Y3IzcTV0dHFjM3Nt">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>Erafone</strong><br>
-          <a href="https://www.instagram.com/reel/DRZBB4pE-Zc/?igsh=MW44cjV6aXJ5Y242NA==">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>MS Glow Men</strong><br>
-          <a href="https://www.instagram.com/reel/DPVeEomE6X8/?igsh=MThnaXRyMnJqMHdubQ==">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>Fisik Sport</strong><br>
-          <a href="https://www.instagram.com/reel/DOgH9Nak8K2/?igsh=MTFnM3ZpMzA2M2Q5NQ==">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>Napoleon</strong><br>
-          <a href="https://www.instagram.com/reel/C6YJAasS8Pn/?igsh=ZmFlMnl0YTJ1bjV0">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>Huawei</strong><br>
-          <a href="https://www.instagram.com/reel/DLhT7wzzxSa/?igsh=MWwxajVxOTg1MnZyYQ==">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>Coast To Coast</strong><br>
-          <a href="https://www.instagram.com/reel/DEb7W1UzOkK/?igsh=MWQxdjJicnpyMjhlZA==">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>Nutriflakes</strong><br>
-          <a href="https://www.instagram.com/reel/DECA0M3Tm4g/?igsh=dGQ1MzZmcmpyMjNh">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>On Point</strong><br>
-          <a href="https://www.instagram.com/reel/DDekngGSqOv/?igsh=MWJxejRzYm1tMXp6aw==">▶ Lihat Video</a>
-        </div>
-        <div class="video">
-          <strong>NVL</strong><br>
-          <a href="https://www.instagram.com/reel/C3mnY9gyL-c/?igsh=ZTd3c2ZiMHNnNmNi">▶ Lihat Video</a>
-        </div>
+        <a class="video" href="https://www.instagram.com/reel/C6nrmZ6yPlP/?igsh=bWtpa3p2czYyYTQw">
+          <strong>Sport Station</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/C_b-s7ey3M2/?igsh=OXF2bDV4cGF5bTA=">
+          <strong>PlanetSports.Asia</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/C5z2QVzyBS9/?igsh=MWU4bDdlaXJneWVv">
+          <strong>HOKA</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/C8JIvB8y5Sc/?igsh=MXJ1ZWVtaW9raDd2MQ==">
+          <strong>Reebok</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/DB8n644ABXf/?igsh=YXl2ejE0N3VyZWhr">
+          <strong>New Balance</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/DDHgw-bTCTw/?igsh=Y3IzcTV0dHFjM3Nt">
+          <strong>Tiento</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/DRZBB4pE-Zc/?igsh=MW44cjV6aXJ5Y242NA==">
+          <strong>Erafone</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/DPVeEomE6X8/?igsh=MThnaXRyMnJqMHdubQ==">
+          <strong>MS Glow Men</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/DOgH9Nak8K2/?igsh=MTFnM3ZpMzA2M2Q5NQ==">
+          <strong>Fisik Sport</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/C6YJAasS8Pn/?igsh=ZmFlMnl0YTJ1bjV0">
+          <strong>Napoleon</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/DLhT7wzzxSa/?igsh=MWwxajVxOTg1MnZyYQ==">
+          <strong>Huawei</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/DEb7W1UzOkK/?igsh=MWQxdjJicnpyMjhlZA==">
+          <strong>Coast To Coast</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/DECA0M3Tm4g/?igsh=dGQ1MzZmcmpyMjNh">
+          <strong>Nutriflakes</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/DDekngGSqOv/?igsh=MWJxejRzYm1tMXp6aw==">
+          <strong>On Point</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
+        <a class="video" href="https://www.instagram.com/reel/C3mnY9gyL-c/?igsh=ZTd3c2ZiMHNnNmNi">
+          <strong>NVL</strong>
+          <span class="watch">▶ Lihat Video</span>
+        </a>
       </div>
     </section>
   </main>
