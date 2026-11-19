@@ -1,536 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta http-equiv="Content-Security-Policy"
-content="
-default-src 'self';
-img-src 'self' https: data:;
-style-src 'self' 'unsafe-inline';
-script-src 'self' 'unsafe-inline';
-">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Afriandy Agus Lihanda — Entrepreneur, Content Creator, Official & Crew Event olahraga Indonesia">
-<meta name="author" content="Afriandy Agus Lihanda">
-<meta property="og:title" content="Afriandy | Entrepreneur & Content Creator">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'">
+<meta name="description" content="Portofolio Afriandy Agus Lihanda. Pengembangan web, race timing, usaha, dan kolaborasi konten olahraga.">
+<meta property="og:title" content="Afriandy Agus Lihanda · Portofolio">
 <meta property="og:type" content="website">
-<meta property="og:image" content="img/foto-hero.jpg">
-
-<title>Afriandy | Crew, Official & Content Creator</title>
-
-<style>
-:root{
-  --bg:#020617;
-  --text:#e5e7eb;
-  --primary:#38bdf8;
-  --glass:rgba(255,255,255,0.08);
-}
-.light{
-  --bg:#f8fafc;
-  --text:#020617;
-  --glass:rgba(0,0,0,0.05);
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{background:var(--bg);color:var(--text);transition:.4s}
-
-/* NAV */
-nav{
-  position:fixed;top:0;width:100%;
-  padding:18px 8%;
-  display:flex;justify-content:space-between;align-items:center;
-  backdrop-filter:blur(15px);
-  background:rgba(2,6,23,.65);
-  z-index:999;
-}
-nav h1{color:var(--primary)}
-nav ul{display:flex;gap:25px;list-style:none}
-nav a{color:var(--text);text-decoration:none}
-.toggle{cursor:pointer}
-
-.nav-left{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.mail-icon{
-  width:34px;
-  height:34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:var(--glass);
-  color:var(--primary);
-  text-decoration:none;
-  font-size:1rem;
-  border:1px solid rgba(56,189,248,.4);
-  backdrop-filter:blur(10px);
-  transition:.3s;
-}
-
-.mail-icon:hover{
-  background:linear-gradient(135deg,#38bdf8,#22d3ee);
-  color:#020617;
-  transform:translateY(-2px) scale(1.08);
-  box-shadow:0 10px 25px rgba(56,189,248,.45);
-}
-
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding:120px 8% 0;
-}
-.hero-wrap{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-.hero-photo img{
-  width:100%;
-  max-width:420px;
-  border-radius:36px;
-  box-shadow:0 40px 80px rgba(56,189,248,.25);
-  animation:float 6s ease-in-out infinite;
-}
-.hero h2{font-size:3rem}
-.hero span{color:var(--primary)}
-.hero p{margin-top:15px;max-width:520px;opacity:.9}
-
-/* BUSINESS LINKS */
-.business-links{
-  margin-top:26px;
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.biz-btn{
-  padding:12px 18px;
-  border-radius:12px;
-  text-decoration:none;
-  color:var(--text);
-  background:var(--glass);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.08);
-  min-width:210px;
-  transition:.35s;
-}
-.biz-btn strong{font-size:.9rem}
-.biz-btn span{font-size:.75rem;opacity:.65}
-.biz-btn:hover{
-  transform:translateY(-4px);
-  border-color:var(--primary);
-  box-shadow:0 12px 30px rgba(56,189,248,.25);
-}
-.cv-mini{
-  margin-top:18px;
-  max-width:200px;
-}
-
-.cv-mini a{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:14px 16px;
-  background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(34,211,238,.08));
-  border-radius:14px;
-  text-decoration:none;
-  color:var(--text);
-  border:1px dashed rgba(56,189,248,.45);
-  transition:.35s;
-}
-
-.cv-mini a:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(56,189,248,.25);
-}
-
-.cv-tag{
-  font-size:.75rem;
-  padding:6px 10px;
-  border-radius:10px;
-  background:var(--primary);
-  color:#020617;
-  font-weight:600;
-}
-
-.cv-mini strong{
-  font-size:.9rem;
-}
-
-.cv-mini p{
-  font-size:.7rem;
-  opacity:.7;
-  margin-top:2px;
-}
-
-
-/* FLOAT */
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-18px)}
-}
-
-/* SECTION */
-section{
-  padding:100px 8%;
-  opacity:0;
-  transform:translateY(60px);
-  transition:1s;
-}
-section.active{opacity:1;transform:none}
-h3{font-size:2.3rem;color:var(--primary);margin-bottom:25px}
-
-/* ABOUT */
-.about-wrap{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-.about-wrap img{
-  width:100%;
-  border-radius:28px;
-  transition:.5s;
-}
-.about-wrap img:hover{transform:scale(1.05)}
-
-/* SKILLS */
-.skills{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-}
-.skill{
-  background:var(--glass);
-  padding:16px;
-  border-radius:16px;
-}
-.skill-title{margin-bottom:6px;font-size:.9rem;opacity:.85}
-.bar{
-  height:6px;
-  background:rgba(255,255,255,.15);
-  border-radius:20px;
-}
-.fill{
-  height:100%;
-  width:0;
-  background:linear-gradient(90deg,#38bdf8,#22d3ee);
-  border-radius:20px;
-  transition:1.6s ease;
-}
-
-/* CARD & STATS */
-.card{
-  background:var(--glass);
-  backdrop-filter:blur(15px);
-  padding:40px;
-  border-radius:25px;
-}
-.stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:30px;
-  text-align:center;
-}
-.stat{font-size:2.4rem;color:var(--primary)}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:30px;
-}
-
-/* ACHIEVEMENTS (SMALL & CLEAN) */
-.achievements{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:18px;
-}
-.achievement{
-  background:var(--glass);
-  border-radius:16px;
-  overflow:hidden;
-}
-.achievement img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  object-position:center top;
-  transition:.4s;
-}
-.achievement:hover img{
-  transform:scale(1.08);
-}
-.achievement p{
-  text-align:center;
-  font-size:.8rem;
-  padding:10px;
-  opacity:.75;
-}
-
-/* WORK */
-.work{
-  background:var(--glass);
-  border-radius:20px;
-  overflow:hidden;
-}
-.work img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  transition:.5s;
-}
-
-.work:hover img{transform:scale(1.12)}
-.work p{text-align:center;padding:15px}
-
-/* VIDEO */
-.video{
-  background:var(--glass);
-  padding:22px;
-  border-radius:18px;
-}
-.video a{color:var(--primary);text-decoration:none;font-size:.9rem}
-
-/* FOOTER */
-footer{text-align:center;padding:40px;opacity:.6}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero-wrap,.about-wrap,.skills{grid-template-columns:1fr}
-  nav ul{display:none}
-  .hero h2{font-size:2.1rem}
-
-  .business-links{
-    flex-direction:column;
-    gap:12px;
-  }
-
-  .biz-btn{
-    min-width:100%;
-    padding:14px;
-  }
-
-  .cv-mini{
-    max-width:100%;
-    margin-top:14px;
-  }
-
-  .cv-mini a{
-    padding:14px;
-  }
-
-  .cv-tag{
-    font-size:.7rem;
-    padding:5px 9px;
-  }
-
-  .cv-mini strong{
-    font-size:.85rem;
-  }
-
-  .cv-mini p{
-    font-size:.7rem;
-  }
-}
-</style>
+<meta property="og:image" content="profil/foto.jpg">
+<title>Afriandy Agus Lihanda · Portofolio</title>
+<link rel="stylesheet" href="portfolio.css">
+<script src="portfolio.js" defer></script>
 </head>
-
-<body>
-
-<nav>
-  <div class="nav-left">
-    <a href="mailto:Afriandyaguslihanda@gmail.com?subject=Kerja%20Sama%20Afriandy"
-       class="mail-icon"
-       aria-label="Email for collaboration">
-      📩
-    </a>
-    <h1>AFRIANDY AGUS LIHANDA</h1>
-  </div>
-
-  <ul></ul>
-
-  <div class="toggle" onclick="toggleMode()">🌗</div>
-</nav>
-
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-wrap">
-    <div>
-      <h2><span>ENTERPRENEUR</span><br>CONTENT CREATOR</h2>
-      <p>
-        Wirausahawan di bidang olahraga dan transportasi, konten kreator,
-        serta crew & volunteer di berbagai bidang.
-      </p>
-
-      <div class="business-links">
-        <a class="biz-btn" href="https://instagram.com/sewamobilpurworejo_" target="_blank" rel="noopener noreferrer">
-          <strong>Sewa Mobil Purworejo</strong><br>
-          <span>@sewamobilpurworejo_</span>
-        </a>
-        <a class="biz-btn" href="https://instagram.com/rageshop.id" target="_blank" rel="noopener noreferrer">
-          <strong>Rageshop</strong><br>
-          <span>@rageshop.id</span>
-        </a>
-      </div>
-      <div class="cv-mini">
-  <a href="cv/CV-Afriandy-Agus-Lihanda.pdf" download rel="noopener noreferrer">
-    <span class="cv-tag">CV</span>
-    <div>
-      <strong>Curriculum Vitae</strong>
-      <p>Download PDF</p>
-    </div>
-  </a>
-</div>
-
-    </div>
-    <div class="hero-photo">
-      <img src="img/foto-hero.jpg" alt="Afriandy Agus Lihanda">
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-wrap">
-    <img src="img/IMG_1601 (1).JPEG">
-    <div>
-      <h3>Tentang Saya</h3>
-      <p>
-        Seorang pengusaha yang merintis dari nol, sering terlibat
-        sebagai crew/official di event lari atau volunteer di beberapa bidang,
-        serta aktif sebagai content creator di sosial media Tiktok dan Instagram.
-
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <h3>Skill & Expertise</h3>
-  <div class="skills">
-    <div class="skill"><div class="skill-title">Team Management</div><div class="bar"><div class="fill" data-fill="100%"></div></div></div>
-    <div class="skill"><div class="skill-title">Social Media Management</div><div class="bar"><div class="fill" data-fill="100%"></div></div></div>
-    <div class="skill"><div class="skill-title">Content Creator</div><div class="bar"><div class="fill" data-fill="100%"></div></div></div>
-    <div class="skill"><div class="skill-title">Project Management</div><div class="bar"><div class="fill" data-fill="100%"></div></div></div>
-    <div class="skill"><div class="skill-title">Marketing Strategy</div><div class="bar"><div class="fill" data-fill="100%"></div></div></div>
-  </div>
-</section>
-
-<!-- ACHIEVEMENT -->
-<section id="achievement">
-  <h3>Prestasi & Pencapaian</h3>
-  <div class="achievements">
-    <div class="achievement"><img src="img/prestasi-1.jpeg"><p>Juara 2 Lari Estafet 4x100M dan Juara 3 Lari 400M POR BAPOMI DIY</p></div>
-    <div class="achievement"><img src="img/prestasi-2.jpeg"><p>Juara Bertahan Amazing Race 2023-2025</p></div>
-    <div class="achievement"><img src="img/prestasi-3..jpeg"><p>2 Medali Emas dan 1 Perak PORSENIGAMA UGM 2022</p></div>
-    <div class="achievement"><img src="img/prestasi-4.jpeg"><p>Amazing Race 2024</p></div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section>
-  <h3>Pengalaman</h3>
-  <div class="card stats">
-    <div><div class="stat" data-num="50" data-suffix="+">0</div>OFFICIAL/CREW EVENT</div>
-    <div><div class="stat" data-num="15" data-suffix="+">0</div>BRAND ENDORSE</div>
-    <div><div class="stat" data-num="100" data-suffix="+">0</div>VIDEO</div>
-  </div>
-</section>
-
-<!-- CREW -->
-<section id="portfolio">
-  <h3>Dokumentasi Crew Event</h3>
-  <div class="grid">
-    <div class="work"><img src="img/crew-1.jpg"><p>CAPTAIN MARSHAL</p></div>
-    <div class="work"><img src="img/crew-2.jpg"><p>START-FINISH TEAM</p></div>
-    <div class="work"><img src="img/crew-3.jpg"><p>OFFICIAL TIMING MEDAN BLOT RUN</p></div>
-    <div class="work"><img src="img/crew-4.jpg"><p>TIMING SYSTEM DIENG CALDERA RUN</p></div>
-    <div class="work"><img src="img/crew-5.jpg"><p>CAPTAIN CCTV</p></div>
-    <div class="work"><img src="img/crew-6.jpg"><p>MARSHAL</p></div>
-  </div>
-</section>
-
-<!-- VIDEOS -->
-<section id="videos">
-  <h3>Video Endorse Brand</h3>
-  <div class="grid">
-    <div class="video"><strong>Sport Station</strong><br><a href="https://www.instagram.com/reel/C6nrmZ6yPlP/?igsh=bWtpa3p2czYyYTQw" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>PlanetSports.Asia</strong><br><a href="https://www.instagram.com/reel/C_b-s7ey3M2/?igsh=OXF2bDV4cGF5bTA=" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>HOKA</strong><br><a href="https://www.instagram.com/reel/C5z2QVzyBS9/?igsh=MWU4bDdlaXJneWVv" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>Reebok</strong><br><a href="https://www.instagram.com/reel/C8JIvB8y5Sc/?igsh=MXJ1ZWVtaW9raDd2MQ==" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>New Balance</strong><br><a href="https://www.instagram.com/reel/DB8n644ABXf/?igsh=YXl2ejE0N3VyZWhr" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>Tiento</strong><br><a href="https://www.instagram.com/reel/DDHgw-bTCTw/?igsh=Y3IzcTV0dHFjM3Nt" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>Erafone</strong><br><a href="https://www.instagram.com/reel/DRZBB4pE-Zc/?igsh=MW44cjV6aXJ5Y242NA==" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>MS Glow Men</strong><br><a href="https://www.instagram.com/reel/DPVeEomE6X8/?igsh=MThnaXRyMnJqMHdubQ==" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>Fisik Sport</strong><br><a href="https://www.instagram.com/reel/DOgH9Nak8K2/?igsh=MTFnM3ZpMzA2M2Q5NQ==" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>Napoleon</strong><br><a href="https://www.instagram.com/reel/C6YJAasS8Pn/?igsh=ZmFlMnl0YTJ1bjV0" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>Huawei</strong><br><a href="https://www.instagram.com/reel/DLhT7wzzxSa/?igsh=MWwxajVxOTg1MnZyYQ==" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>Coast To Coast</strong><br><a href="https://www.instagram.com/reel/DEb7W1UzOkK/?igsh=MWQxdjJicnpyMjhlZA==" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>Nutriflakes</strong><br><a href="https://www.instagram.com/reel/DECA0M3Tm4g/?igsh=dGQ1MzZmcmpyMjNh" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>On Point</strong><br><a href="https://www.instagram.com/reel/DDekngGSqOv/?igsh=MWJxejRzYm1tMXp6aw==" rel="noopener noreferrer">▶ Lihat Video</a></div>
-    <div class="video"><strong>NVL</strong><br><a href="https://www.instagram.com/reel/C3mnY9gyL-c/?igsh=ZTd3c2ZiMHNnNmNi" rel="noopener noreferrer">▶ Lihat Video</a></div>
-  </div>
-</section>
-
-<footer>
-© 2026 Afriandy Agus Lihanda — ENTERPRENEUR  • CONTENT CREATOR • OFFICIAL & CREW EVENT
-</footer>
-
-<script>
-function toggleMode(){
-  document.body.classList.toggle("light");
-}
-
-/* SECTION + SKILL ANIMATION */
-const sections=document.querySelectorAll("section");
-const fills=document.querySelectorAll(".fill");
-window.addEventListener("scroll",()=>{
-  sections.forEach(sec=>{
-    if(scrollY+innerHeight>sec.offsetTop+100){
-      sec.classList.add("active");
-    }
-  });
-  fills.forEach(fill=>{
-    if(fill.getBoundingClientRect().top<innerHeight){
-      fill.style.width=fill.dataset.fill;
-    }
-  });
-});
-
-/* COUNTER */
-document.querySelectorAll(".stat").forEach(stat=>{
-  let done=false;
-  window.addEventListener("scroll",()=>{
-    if(!done && scrollY+innerHeight>stat.offsetTop){
-      done=true;
-      let i=0;
-      const target = +stat.dataset.num;
-      const suffix = stat.dataset.suffix || "";
-      const label = stat.dataset.label || "";
-
-      const int = setInterval(()=>{
-        i += Math.ceil(target / 80);
-        if(i >= target){
-          i = target;
-          clearInterval(int);
-          stat.textContent = i + suffix + label;
-        } else {
-          stat.textContent = i;
-        }
-      },30);
-    }
-  });
-});
-</script>
-
-</body>
-</html>
+<body id="awal">
+<a class="skip" href="#utama">Lewati navigasi</a>
+<header class="wrap"><a class="wordmark" href="#awal" aria-label="Afriandy, beranda"><i aria-hidden="true">///</i> afriandy.</a>
+<nav aria-label="Navigasi utama"><a href="#portfolio">Karya</a><a href="#about">Profil</a><a href="#kontak">Kontak</a></nav>
+<button id="tema" hidden>Tema gelap</button></header>
+<main id="utama">
+<div class="wrap hero"><div class="intro"><p class="kicker">Portofolio pribadi</p>
+<h1>Afriandy<br>Agus <em>Lihanda.</em></h1>
+<p class="lead">Saya membangun website, bekerja di balik garis finis, dan bercerita lewat konten olahraga.</p>
+<div class="actions"><a class="primary" href="#portfolio">Jelajahi karya</a><a class="outline" href="profil/cv.pdf" download="CV-Afriandy-Agus-Lihanda.pdf">Unduh CV <small>PDF</small></a></div></div>
+<figure class="portrait"><img src="profil/foto.jpg" alt="Potret Afriandy Agus Lihanda" fetchpriority="high"><div class="lanes" aria-hidden="true"></div></figure></div>
+<div class="stats wrap" aria-label="Pengalaman"><div><b>50+</b><span>Event sebagai official &amp; crew</span></div><div><b>15+</b><span>Kolaborasi brand</span></div><div><b>100+</b><span>Video konten</span></div></div>
+<section class="wrap block" id="portfolio"><p class="kicker">Portofolio</p><h2>Karya pilihan<span>.</span></h2>
+<div class="filters" hidden aria-label="Filter karya" role="group"><button data-filter="all" aria-pressed="true">Semua</button><button data-filter="web" aria-pressed="false">Website</button><button data-filter="race" aria-pressed="false">Race &amp; timing</button><button data-filter="brand" aria-pressed="false">Konten brand</button></div>
+<article data-category="web"><div class="project"><div class="bib" aria-hidden="true"><div><span>RACETAP.ID</span><strong>BIB CHECK</strong><i></i></div></div>
+<div class="project-copy"><p class="kicker">Website · Race technology</p><h3>Bib Check</h3><p>Alat untuk mencocokkan nomor BIB dan data peserta saat pengambilan race pack.</p><a href="https://www.instagram.com/racetap.id/">Lihat aktivitas Racetap.id ↗</a></div></div></article>
+<article data-category="race"><p class="kicker">Race &amp; timing</p><h3>Di balik garis finis</h3><div class="gallery"><figure><img loading="lazy" src="img/crew-1.jpg" alt=""><figcaption>Captain Marshal</figcaption></figure>
+<figure><img loading="lazy" src="img/crew-2.jpg" alt=""><figcaption>Start–Finish Team</figcaption></figure>
+<figure><img loading="lazy" src="img/crew-3.jpg" alt=""><figcaption>Official Timing · Medan Blot Run</figcaption></figure>
+<figure><img loading="lazy" src="img/crew-4.jpg" alt=""><figcaption>Timing System · Dieng Caldera Run</figcaption></figure>
+<figure><img loading="lazy" src="img/crew-5.jpg" alt=""><figcaption>Captain CCTV</figcaption></figure>
+<figure><img loading="lazy" src="img/crew-6.jpg" alt=""><figcaption>Marshal</figcaption></figure></div></article>
+<article data-category="brand" id="videos"><p class="kicker">Konten brand</p><h3>Kolaborasi dalam video</h3><ul class="reels"><li><a href="https://www.instagram.com/reel/C6nrmZ6yPlP/?igsh=bWtpa3p2czYyYTQw"><b>Sport Station</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/C_b-s7ey3M2/?igsh=OXF2bDV4cGF5bTA="><b>PlanetSports.Asia</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/C5z2QVzyBS9/?igsh=MWU4bDdlaXJneWVv"><b>HOKA</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/C8JIvB8y5Sc/?igsh=MXJ1ZWVtaW9raDd2MQ=="><b>Reebok</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/DB8n644ABXf/?igsh=YXl2ejE0N3VyZWhr"><b>New Balance</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/DDHgw-bTCTw/?igsh=Y3IzcTV0dHFjM3Nt"><b>Tiento</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/DRZBB4pE-Zc/?igsh=MW44cjV6aXJ5Y242NA=="><b>Erafone</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/DPVeEomE6X8/?igsh=MThnaXRyMnJqMHdubQ=="><b>MS Glow Men</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/DOgH9Nak8K2/?igsh=MTFnM3ZpMzA2M2Q5NQ=="><b>Fisik Sport</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/C6YJAasS8Pn/?igsh=ZmFlMnl0YTJ1bjV0"><b>Napoleon</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/DLhT7wzzxSa/?igsh=MWwxajVxOTg1MnZyYQ=="><b>Huawei</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/DEb7W1UzOkK/?igsh=MWQxdjJicnpyMjhlZA=="><b>Coast To Coast</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/DECA0M3Tm4g/?igsh=dGQ1MzZmcmpyMjNh"><b>Nutriflakes</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/DDekngGSqOv/?igsh=MWJxejRzYm1tMXp6aw=="><b>On Point</b><span>Tonton reel ↗</span></a></li>
+<li><a href="https://www.instagram.com/reel/C3mnY9gyL-c/?igsh=ZTd3c2ZiMHNnNmNi"><b>NVL</b><span>Tonton reel ↗</span></a></li></ul></article></section>
+<section class="wrap block bio" id="about"><img src="profil/tentang.jpg" alt="Afriandy dalam dokumentasi pribadi" loading="lazy"><div><p class="kicker">Profil</p><h2>Tentang saya<span>.</span></h2><p>Saya merintis usaha transportasi di Purworejo dan toko pakaian olahraga. Di sela kegiatan usaha, saya bertugas sebagai crew dan official event lari, menjadi relawan, serta membuat konten di Instagram dan TikTok.</p>
+<div class="actions"><a href="https://instagram.com/sewamobilpurworejo_">AL TRANS Purworejo ↗</a><a href="https://instagram.com/rageshop.id">Rageshop ↗</a></div>
+<h3 id="skills">Keahlian</h3><p>Manajemen tim dan proyek, pengelolaan media sosial, produksi konten, serta strategi pemasaran.</p></div></section>
+<section class="wrap block" id="achievement"><p class="kicker">Atletik &amp; kompetisi</p><h2>Prestasi<span>.</span></h2><div class="gallery"><figure><img loading="lazy" src="img/prestasi-1.jpeg" alt=""><figcaption>Juara 2 Lari Estafet 4x100M dan Juara 3 Lari 400M POR BAPOMI DIY</figcaption></figure>
+<figure><img loading="lazy" src="img/prestasi-2.jpeg" alt=""><figcaption>Juara Bertahan Amazing Race 2023-2025</figcaption></figure>
+<figure><img loading="lazy" src="img/prestasi-3..jpeg" alt=""><figcaption>2 Medali Emas dan 1 Perak PORSENIGAMA UGM 2022</figcaption></figure>
+<figure><img loading="lazy" src="img/prestasi-4.jpeg" alt=""><figcaption>Amazing Race 2024</figcaption></figure></div></section></main>
+<footer id="kontak"><div class="wrap"><p class="kicker">Kontak</p><h2>Mari berkolaborasi.</h2><a href="mailto:Afriandyaguslihanda@gmail.com">Afriandyaguslihanda@gmail.com</a><div class="social"><a href="https://www.instagram.com/afriandyal/">Instagram</a><a href="https://www.tiktok.com/@afriandyagus">TikTok</a><a href="https://github.com/afriandyaguslihanda">GitHub</a></div></div></footer></body></html>
